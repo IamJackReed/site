@@ -1,21 +1,28 @@
 ---
-layout: minimal2
+layout: minimal
 title: Disclaimer
 permalink: /disclaimer.html
 ---
 
-<section class="container disclaimer-wrap">
-  <h1>Disclaimer – Please Read Before You Proceed</h1>
+<section class="container" style="max-width:820px;margin:4rem auto;padding:1.5rem;">
+  <h1 style="margin-bottom:1rem;">Disclaimer</h1>
+  <p><strong>Last updated:</strong> {{ site.time | date: "%-d %B %Y" }}</p>
 
-  <p class="muted">Hi there - and welcome!</p>
-  <p>This site contains personal stories and reflections from my work as a Scrum Master, Agile Coach, and systems thinker. Occasionally, I also write about investing and markets.</p>
+  <p>This personal website shares my stories, opinions, and research interests across Agile, Scrum, Professional Coaching, Systems Thinking, VR/AR, AI, Investing and Financial markets. It is published for <strong>information and educational purposes</strong> only.</p>
 
-  <p><strong>None of this is financial advice.</strong> It’s for educational and informational purposes only. I’m not FCA-regulated. Please don’t invest based on anything here without doing your own research, and ideally consult a qualified financial adviser first.</p>
+  <ul>
+    <li><strong>Not financial advice:</strong> Nothing on this site constitutes investment advice, portfolio management, or a recommendation to buy or sell any security, asset, or strategy.</li>
+    <li><strong>Content is personal:</strong> All views are my own and do not represent any employer or client.</li>
+    <li><strong>No client relationship:</strong> Your use of this site does not create a coaching, advisory, or professional relationship.</li>
+    <li><strong>Do your own research:</strong> Markets carry risk, including the potential loss of capital. Always verify information independently and consider speaking to a regulated professional.</li>
+    <li><strong>Regulatory note (UK):</strong> This site is not authorised or regulated by the FCA and does not solicit investment.</li>
+  </ul>
 
-  <p>By clicking below, you agree to these terms and understand this site is just a blog — not a tip sheet.</p>
+  <p>To continue to the site, please confirm you understand the above.</p>
 
-  <div class="disclaimer-actions">
-    <button id="acceptDisclaimer" class="btn">I Accept — Take Me to the Site</button>
+  <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:1.25rem;">
+    <button id="acceptDisclaimer" style="padding:0.75rem 1.25rem;border:none;border-radius:8px;font-weight:600;cursor:pointer;">I understand — continue</button>
+    <a href="https://www.google.com" style="padding:0.75rem 1.25rem;border-radius:8px;border:1px solid #ccc;text-decoration:none;display:inline-block;">No thanks</a>
   </div>
 </section>
 
