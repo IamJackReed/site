@@ -1,0 +1,22 @@
+{% comment %} Redirect first-time visitors to the disclaimer page {% endcomment %}
+<script>
+(function() {
+  try {
+    var accepted = localStorage.getItem('disclaimerAccepted') === '1';
+  } catch (e) {
+    var accepted = false;
+  }
+  var path = window.location.pathname;
+  var isDisclaimer = /\/disclaimer(\.html)?$/i.test(path);
+  if (!accepted && !isDisclaimer) {
+    try {
+      sessionStorage.setItem(
+        'intendedPath',
+        window.location.pathname + window.location.search + window.location.hash
+      );
+    } catch (e) {}
+    var baseurl = '{{ site.baseurl }}' || '';
+    window.location.href = baseurl + '/disclaimer.html';
+  }
+})();
+</script>
