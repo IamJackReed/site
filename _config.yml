@@ -12,7 +12,7 @@ tags:
 show_hero: true
 menu:
   - title: Home
-    url: /https://iamjackreed.github.io/site/
+    url: https://iamjackreed.github.io/site
   - title: About
     url: /about
   - title: Contact
