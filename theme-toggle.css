@@ -1,0 +1,220 @@
+/* ===================================
+   THEME TOGGLE SWITCH
+   Figma-inspired Design
+   =================================== */
+
+.theme-toggle-container {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+}
+
+.theme-toggle {
+    position: relative;
+    width: 64px;
+    height: 32px;
+    background: linear-gradient(135deg, #a259ff, #1abcfe);
+    border-radius: 32px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(162, 89, 255, 0.3);
+    border: none;
+    padding: 0;
+    overflow: hidden;
+}
+
+.theme-toggle:hover {
+    box-shadow: 0 6px 20px rgba(162, 89, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.theme-toggle:active {
+    transform: translateY(0);
+}
+
+.theme-toggle-slider {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 24px;
+    height: 24px;
+    background: #ffffff;
+    border-radius: 50%;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle-icon {
+    width: 14px;
+    height: 14px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Light theme state */
+body.light-theme .theme-toggle {
+    background: linear-gradient(135deg, #ffcd29, #ff7262);
+}
+
+body.light-theme .theme-toggle-slider {
+    left: 36px;
+}
+
+/* Icons */
+.icon-moon,
+.icon-sun {
+    position: absolute;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-moon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+.icon-sun {
+    opacity: 0;
+    transform: rotate(180deg) scale(0);
+}
+
+body.light-theme .icon-moon {
+    opacity: 0;
+    transform: rotate(-180deg) scale(0);
+}
+
+body.light-theme .icon-sun {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+/* Tooltip */
+.theme-toggle-tooltip {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(26, 26, 26, 0.95);
+    color: #ffffff;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+}
+
+body.light-theme .theme-toggle-tooltip {
+    background: rgba(255, 255, 255, 0.95);
+    color: #1a1a1a;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle-container:hover .theme-toggle-tooltip {
+    opacity: 1;
+}
+
+/* Keyboard focus */
+.theme-toggle:focus {
+    outline: none;
+    box-shadow: 0 6px 20px rgba(162, 89, 255, 0.4), 0 0 0 3px rgba(162, 89, 255, 0.2);
+}
+
+body.light-theme .theme-toggle:focus {
+    box-shadow: 0 6px 20px rgba(255, 205, 41, 0.4), 0 0 0 3px rgba(255, 205, 41, 0.2);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .theme-toggle-container {
+        bottom: 1rem;
+        right: 1rem;
+    }
+    
+    .theme-toggle {
+        width: 56px;
+        height: 28px;
+    }
+    
+    .theme-toggle-slider {
+        width: 20px;
+        height: 20px;
+    }
+    
+    body.light-theme .theme-toggle-slider {
+        left: 32px;
+    }
+    
+    .theme-toggle-icon {
+        width: 12px;
+        height: 12px;
+    }
+    
+    .theme-toggle-tooltip {
+        display: none;
+    }
+}
+
+/* Animation on page load */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.theme-toggle-container {
+    animation: slideInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.5s both;
+}
+
+/* Ripple effect on click */
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+.theme-toggle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    pointer-events: none;
+}
+
+.theme-toggle:active::after {
+    animation: ripple 0.6s ease-out;
+}
+
+
+/* Screen reader only class for accessibility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}

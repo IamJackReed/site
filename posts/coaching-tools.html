@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coaching Tools | Jack Reed</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dark-theme.css">
+    <link rel="stylesheet" href="../light-theme.css">
+    <link rel="stylesheet" href="../theme-toggle.css">
+    <style>
+        /* Post Image - Responsive */
+        .post-image {
+            width: 100%;
+            margin: 2rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .post-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+        
+        /* Desktop - larger screens */
+        @media (min-width: 1024px) {
+            .post-image {
+                margin: 2.5rem 0;
+            }
+        }
+        
+        /* Tablet */
+        @media (max-width: 1023px) and (min-width: 768px) {
+            .post-image {
+                margin: 2rem 0;
+            }
+        }
+        
+        /* Mobile */
+        @media (max-width: 767px) {
+            .post-image {
+                margin: 1.5rem 0;
+                border-radius: 4px;
+            }
+        }
+        
+        /* Key Takeaways Box */
+        .key-takeaways {
+            background: linear-gradient(135deg, rgba(75, 183, 143, 0.1), rgba(0, 122, 139, 0.1));
+            border-left: 4px solid #4BB78F;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .key-takeaways h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0;
+            color: #4BB78F;
+        }
+        
+        .key-takeaways ul {
+            margin-bottom: 0;
+        }
+        
+        .key-takeaways li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .key-takeaways li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Coaching Tools Table */
+        .coaching-tools-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+
+        .coaching-tools-table th {
+            background: var(--color-bg-alt);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid var(--color-border);
+        }
+
+        .coaching-tools-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .coaching-tools-table tr:hover {
+            background: var(--color-bg-alt);
+        }
+
+        .coaching-tools-table a {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .coaching-tools-table a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile responsive table */
+        @media (max-width: 768px) {
+            .coaching-tools-table {
+                font-size: 0.875rem;
+            }
+
+            .coaching-tools-table th,
+            .coaching-tools-table td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <a href="/" class="nav-logo">Jack Reed</a>
+            <div class="nav-search">
+                <input type="text" id="search-input" placeholder="Search posts by hashtag..." aria-label="Search posts">
+                <button id="search-button" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../people-and-teams.html">People & Teams</a></li>
+                <li><a href="../product.html">Product</a></li>
+                <li><a href="../organisation-and-change.html">Organisation & Change</a></li>
+                <li><a href="../market-diary.html">Market Diary</a></li>
+                <li><a href="../about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="content-page">
+        <div class="container">
+            <article class="article">
+                <header class="article-header">
+                    <span class="post-category">People & Teams</span>
+                    <h1>Coaching Tools</h1>
+                    <p class="article-subtitle">A collection of coaching tools for effective practice</p>
+                    <div class="article-meta">
+                        <time datetime="2026-01-15">15 January 2026</time>
+                    </div>
+                </header>
+
+                <!-- Post Image -->
+                <div class="post-image">
+                    <img src="https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559821647/theme6_qeeojf.jpg" alt="Coaching Tools" />
+                </div>
+
+                <!-- TL;DR Summary -->
+                <div class="key-takeaways">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        TL;DR Summary
+                    </h3>
+                    <p>Coaching is more than the application of specific tools; it is fundamentally based on a strong coaching relationship. That said, here is a collection of coaching tools that can support your practice.</p>
+                    <p>These tools serve different purposes — from challenging beliefs and gathering feedback to exploring values and building motivation. Use them thoughtfully, always in service of the coaching relationship and the client's goals.</p>
+                    <p><strong>Hashtags:</strong>#Coaching #CoachingRelationships #CoachingTools</p>
+                </div>
+
+                <!-- Introduction -->
+                <section class="article-section">
+                    <h2>Introduction</h2>
+                    <p>Effective coaching relies on the quality of the relationship between coach and client. Tools and techniques can enhance this relationship, but they should never replace the fundamental human connection that makes coaching work.</p>
+                    <p>The following collection represents 54 coaching tools, each with a specific purpose. Some help challenge limiting beliefs, others explore values or relationships, and some provide structure for coaching conversations.</p>
+                    <p>Use these tools as a starting point, adapting them to fit your coaching style and your client's needs.</p>
+                </section>
+
+                <!-- Coaching Tools Table -->
+                <section class="article-section">
+                    <h2>Coaching Tools Reference</h2>
+                    <table class="coaching-tools-table">
+                        <thead>
+                            <tr>
+                                <th>Tool</th>
+                                <th>Main Use</th>
+                                <th>More</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ABCDEF</td>
+                                <td>Challenging a person's beliefs</td>
+                                <td><a href="abcdef-coaching-tool.html">Link</a>
+                            </tr>
+                            <tr>
+                                <td>Ask Five People</td>
+                                <td>Gathering feedback</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Beliefs Timeline</td>
+                                <td>Revisiting the formation of belief</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Career Timeline</td>
+                                <td>Career Coaching Work</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Constellations</td>
+                                <td>Explores the system the client is in</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Derive</td>
+                                <td>Shifting perspectives</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>GROW Model</td>
+                                <td>Structuring a coaching conversation</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Hot Seat Questioning</td>
+                                <td>Generating coaching questions from a group</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Inner Cast of Characters</td>
+                                <td>Working with conflicting thoughts</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Kline Incisive Questions</td>
+                                <td>To address limiting beliefs or assumptions</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>McClelland Values</td>
+                                <td>Understanding values</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Metaphor Through Picture Cards</td>
+                                <td>Shifting perspective</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Peak Experience</td>
+                                <td>Working with values</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Perceptual Positions</td>
+                                <td>Relationships</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Post it Notes</td>
+                                <td>Addressing limiting beliefs</td>
+                                <td><a href="post-it-notes.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Relationship Graph</td>
+                                <td>Exploring relationships</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>TA Questionnaire</td>
+                                <td>Reflecting on drivers</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Triad Meetings</td>
+                                <td>Agreeing outcomes in organisational setting</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Wheel of Anything</td>
+                                <td>Exploration</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Vision Chairs</td>
+                                <td>Building motivation to change behaviour</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>50 Values</td>
+                                <td>To create an increased sense of fulfilment</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Aligning Life Goals & Well-being</td>
+                                <td>Clarity on life goals that drive well-being</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Anchoring</td>
+                                <td>Feel calm in situations that cause concern</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Appreciative Inquiry Questions</td>
+                                <td>Build self-esteem, highlight positive attributes</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Authentic Self</td>
+                                <td>Build self-esteem and confidence</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Behavioural Rehearsal</td>
+                                <td>To practice new behaviours</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Blobs</td>
+                                <td>Shift perspective</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Concordant Goals</td>
+                                <td>To help with goal setting</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Face Your FABs</td>
+                                <td>Addressing procrastination</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Fulfilling Goals</td>
+                                <td>To help with goal formulation</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Identify Your Strengths</td>
+                                <td>Building confidence</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Immunity to Change Model</td>
+                                <td>To uncover internal barriers to change</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Inner Toddler</td>
+                                <td>For people pleasing or low assertiveness</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Learning Styles Questionnaire</td>
+                                <td>Identify learning style</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Loss Letter</td>
+                                <td>Dealing with loss or change</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Miracle Question</td>
+                                <td>Envisioning the future</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Obstacle Analysis Grid</td>
+                                <td>Identifying blocks and overcoming resistance</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>People in My Life</td>
+                                <td>Considering supporting network of people</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Personal SWOT</td>
+                                <td>Career assessment and planning</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Positive Psychology</td>
+                                <td>Building happiness and well-being</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Questions to Ask</td>
+                                <td>Decision making questions</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Responsibility Pie Chart</td>
+                                <td>Developing balance on responsibility</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Save the Date</td>
+                                <td>Addressing procrastination</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Success Timeline</td>
+                                <td>Building appreciation of strengths</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Taking Risks</td>
+                                <td>Building confidence</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>The Seven Key Questions</td>
+                                <td>To uncover limiting beliefs and fears</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Thinking Environment</td>
+                                <td>To enable thinking</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Three Good Things</td>
+                                <td>Build confidence and self-esteem</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Twelve Trait Assessment</td>
+                                <td>Trait assessment and self-awareness</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Twenty Things I like To Do</td>
+                                <td>Reflect on values and things of importance</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>VIA Signature Strengths</td>
+                                <td>Identify and work with strengths</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Ways of Changing Focus</td>
+                                <td>Shift perspective</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Well-formed Outcomes</td>
+                                <td>To help with goal setting</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Write your Own Job Reference</td>
+                                <td>Building confidence</td>
+                                <td><a href="coaching-tool-coming-soon.html">Link</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Conclusion -->
+                <section class="article-section">
+                    <h2>Using These Tools Effectively</h2>
+                    <p>Remember that tools are only as effective as the relationship in which they're used. Before reaching for a technique, ensure you've established trust, clarity of purpose, and genuine curiosity about your client's experience.</p>
+                    <p>The best coaches know when to use a tool and when to simply listen. Let the client's needs guide your choice, not the other way around.</p>
+                </section>
+            </article>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 Jack Reed. All rights reserved.</p>
+                <div class="social-icons">
+                    <a href="https://uk.linkedin.com/in/iamjackreed" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/jack.ross.reed/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com/jackrossreed" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../main.js"></script>
+    <script src="../search.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Psychological Safety in Remote Teams | Jack Reed</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dark-theme.css">
+    <link rel="stylesheet" href="../light-theme.css">
+    <link rel="stylesheet" href="../theme-toggle.css">
+    
+    <!-- Prism.js for Syntax Highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet" />
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Download button hover effects */
+        .download-btn:hover {
+            border-color: #4BB78F !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(75, 183, 143, 0.2);
+        }
+        
+        .download-btn:hover svg {
+            stroke: #4BB78F;
+            transform: translateY(2px);
+        }
+        
+        /* Share button hover effects */
+        .article-section a[href*="twitter"]:hover,
+        .article-section a[href*="linkedin"]:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(254, 75, 96, 0.15);
+        }
+        
+        .article-section button:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(254, 75, 96, 0.15);
+        }
+        
+        /* Related posts hover effects */
+        .article-section a[style*="background: var(--color-card-bg)"]:hover {
+            border-color: #4BB78F;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(75, 183, 143, 0.15);
+        }
+        
+        /* Key Takeaways Box */
+        .key-takeaways {
+            background: linear-gradient(135deg, rgba(75, 183, 143, 0.1), rgba(0, 122, 139, 0.1));
+            border-left: 4px solid #4BB78F;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .key-takeaways h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0;
+            color: #4BB78F;
+        }
+        
+        .key-takeaways ul {
+            margin-bottom: 0;
+        }
+        
+        .key-takeaways li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .key-takeaways li:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Prism.js customization for theme compatibility */
+        pre[class*="language-"] {
+            background: var(--color-card-bg) !important;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        code[class*="language-"] {
+            color: var(--color-text);
+        }
+        
+        .token.comment,
+        .token.prolog,
+        .token.doctype,
+        .token.cdata {
+            color: #6c757d;
+        }
+        
+        .token.punctuation {
+            color: var(--color-text-light);
+        }
+        
+        .token.property,
+        .token.tag,
+        .token.boolean,
+        .token.number,
+        .token.constant,
+        .token.symbol,
+        .token.deleted {
+            color: #F0A946;
+        }
+        
+        .token.selector,
+        .token.attr-name,
+        .token.string,
+        .token.char,
+        .token.builtin,
+        .token.inserted {
+            color: #4BB78F;
+        }
+        
+        .token.operator,
+        .token.entity,
+        .token.url,
+        .language-css .token.string,
+        .style .token.string {
+            color: #007A8B;
+        }
+        
+        .token.atrule,
+        .token.attr-value,
+        .token.keyword {
+            color: #FE4B60;
+        }
+        
+        .token.function,
+        .token.class-name {
+            color: #F0A946;
+        }
+        
+        .line-numbers .line-numbers-rows {
+            border-right: 1px solid var(--color-border);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <a href="/" class="nav-logo">Jack Reed</a>
+            <div class="nav-search">
+                <input type="text" id="search-input" placeholder="Search posts by hashtag..." aria-label="Search posts">
+                <button id="search-button" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../people-and-teams.html">People & Teams</a></li>
+                <li><a href="../product.html">Product</a></li>
+                <li><a href="../organisation-and-change.html">Organisation & Change</a></li>
+                <li><a href="../market-diary.html">Market Diary</a></li>
+                <li><a href="../about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="content-page">
+        <div class="container">
+            <article class="article">
+                <header class="article-header">
+                    <span class="post-category">People & Teams</span>
+                    <h1>Building Psychological Safety in Remote Teams</h1>
+                    <p class="article-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <div class="article-meta">
+                        <time datetime="2026-01-25">25 January 2026</time>
+                    </div>
+                </header>
+
+                <!-- Key Takeaways Box -->
+                <div class="key-takeaways">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        TL;DR Summary
+                    </h3>
+                    <ul>
+                        <li><strong>Psychological safety is critical for remote teams</strong> — Without physical proximity, intentional effort is needed to build trust and openness.</li>
+                        <li><strong>Five core components matter most</strong> — Trust, communication, vulnerability, learning orientation, and inclusion form the foundation.</li>
+                        <li><strong>Measurement drives improvement</strong> — Regular team assessments help track progress and identify areas needing attention.</li>
+                        <li><strong>Structure enables safety</strong> — Consistent rituals like check-ins, retrospectives, and health checks create safe spaces for dialogue.</li>
+                        <li><strong>Leadership sets the tone</strong> — Modeling vulnerability and celebrating learning from failures encourages team-wide psychological safety.</li>
+                    </ul>
+                </div>
+
+                <!-- Introduction -->
+                <section class="article-section">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </section>
+
+                <!-- H2 Section with Quote -->
+                <section class="article-section">
+                    <h2>Understanding Psychological Safety</h2>
+                    
+                    <blockquote>
+                        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Psychological safety is the foundation of high-performing teams."</p>
+                        <cite>— Dr. Amy Edmondson</cite>
+                    </blockquote>
+
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                </section>
+
+                <!-- H3 Section with Bullet Points -->
+                <section class="article-section">
+                    <h3>Key Components of Psychological Safety</h3>
+                    
+                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit:</p>
+                    
+                    <ul>
+                        <li><strong>Trust and Respect:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                        <li><strong>Open Communication:</strong> Sed do eiusmod tempor incididunt ut labore et dolore</li>
+                        <li><strong>Vulnerability:</strong> Ut enim ad minim veniam, quis nostrud exercitation</li>
+                        <li><strong>Learning Orientation:</strong> Duis aute irure dolor in reprehenderit in voluptate</li>
+                        <li><strong>Inclusive Environment:</strong> Excepteur sint occaecat cupidatat non proident</li>
+                    </ul>
+                </section>
+
+                <!-- H4 Section with Table -->
+                <section class="article-section">
+                    <h4>Remote vs. In-Office Team Dynamics</h4>
+                    
+                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum:</p>
+                    
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Aspect</th>
+                                    <th>Remote Teams</th>
+                                    <th>In-Office Teams</th>
+                                    <th>Hybrid Teams</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Communication</td>
+                                    <td>Asynchronous, documented</td>
+                                    <td>Synchronous, informal</td>
+                                    <td>Mixed approach</td>
+                                </tr>
+                                <tr>
+                                    <td>Trust Building</td>
+                                    <td>Requires intentional effort</td>
+                                    <td>Organic development</td>
+                                    <td>Balanced strategy</td>
+                                </tr>
+                                <tr>
+                                    <td>Feedback Loops</td>
+                                    <td>Structured, scheduled</td>
+                                    <td>Spontaneous, frequent</td>
+                                    <td>Combination of both</td>
+                                </tr>
+                                <tr>
+                                    <td>Team Cohesion</td>
+                                    <td>Virtual activities needed</td>
+                                    <td>Natural interactions</td>
+                                    <td>Intentional planning</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Pie Chart Section -->
+                <section class="article-section">
+                    <h3>Team Psychological Safety Survey Results</h3>
+                    
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Survey data from 500 remote teams:</p>
+                    
+                    <div class="chart-container" style="max-width: 500px; margin: 2rem auto;">
+                        <canvas id="pieChart"></canvas>
+                    </div>
+                    
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                </section>
+
+                <!-- Bar Chart Section -->
+                <section class="article-section">
+                    <h3>Impact of Psychological Safety on Team Performance</h3>
+                    
+                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit:</p>
+                    
+                    <div class="chart-container" style="max-width: 700px; margin: 2rem auto;">
+                        <canvas id="barChart"></canvas>
+                    </div>
+                </section>
+
+                <!-- Spider/Radar Chart Section -->
+                <section class="article-section">
+                    <h3>Team Assessment Framework</h3>
+                    
+                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium:</p>
+                    
+                    <div class="chart-container" style="max-width: 600px; margin: 2rem auto;">
+                        <canvas id="radarChart"></canvas>
+                    </div>
+                    
+                    <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet.</p>
+                </section>
+
+                <!-- Line Chart Section -->
+                <section class="article-section">
+                    <h3>Psychological Safety Growth Over Time</h3>
+                    
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, tracking team progress over 12 months:</p>
+                    
+                    <div class="chart-container" style="max-width: 800px; margin: 2rem auto;">
+                        <canvas id="lineChart"></canvas>
+                    </div>
+                </section>
+
+                <!-- Code Snippet Section -->
+                <section class="article-section">
+                    <h3>Implementing a Team Check-in System</h3>
+                    
+                    <p>Sed ut perspiciatis unde omnis iste natus error. Here's a simple implementation:</p>
+                    
+                    <pre class="line-numbers"><code class="language-javascript">// Team Check-in System
+class TeamCheckIn {
+    constructor(teamName) {
+        this.teamName = teamName;
+        this.responses = [];
+    }
+    
+    addResponse(member, mood, concerns) {
+        this.responses.push({
+            member: member,
+            mood: mood,
+            concerns: concerns,
+            timestamp: new Date()
+        });
+    }
+}
+
+// Usage example
+const team = new TeamCheckIn('Engineering Team Alpha');
+team.addResponse('Alice', 'great', []);
+team.addResponse('Bob', 'okay', ['Unclear requirements']);
+team.addResponse('Carol', 'good', []);
+
+console.log(`Team Mood Score: ${team.calculateTeamMood()}`);
+console.log('Concerns:', team.getConcerns());</code></pre>
+                    
+                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                </section>
+
+                <!-- Image Section -->
+                <section class="article-section">
+                    <h3>Visual Framework for Team Dynamics</h3>
+                    
+                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis:</p>
+                    
+                    <figure style="margin: 2rem 0;">
+                        <img src="https://res.cloudinary.com/dj6poiukp/image/upload/v1767400374/peopleandteams_sqkbye.png" 
+                             alt="Team dynamics framework visualization" 
+                             style="width: 100%; max-width: 800px; height: auto; border-radius: 8px;">
+                        <figcaption style="text-align: center; margin-top: 1rem; font-style: italic; color: var(--color-text-light);">
+                            Figure 1: Lorem ipsum dolor sit amet framework for remote team collaboration
+                        </figcaption>
+                    </figure>
+                    
+                    <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.</p>
+                </section>
+
+                <!-- Video Section -->
+                <section class="article-section">
+                    <h3>Expert Insights on Remote Team Building</h3>
+                    
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Watch this discussion:</p>
+                    
+                    <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 2rem 0;">
+                        <iframe 
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 8px;"
+                            src="https://youtu.be/502ILHjX9EE?si=J9vJLijmALmBpPNM" 
+                            title="YouTube video player" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                </section>
+
+                <!-- Numbered List Section -->
+                <section class="article-section">
+                    <h3>5 Steps to Build Psychological Safety</h3>
+                    
+                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur:</p>
+                    
+                    <ol>
+                        <li><strong>Establish Clear Communication Norms:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+                        <li><strong>Create Safe Spaces for Feedback:</strong> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                        <li><strong>Model Vulnerability as a Leader:</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+                        <li><strong>Celebrate Learning from Failures:</strong> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+                        <li><strong>Measure and Iterate:</strong> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</li>
+                    </ol>
+                </section>
+
+                <!-- Another Quote -->
+                <section class="article-section">
+                    <blockquote>
+                        <p>"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident."</p>
+                        <cite>— Lorem Ipsum, Team Dynamics Expert</cite>
+                    </blockquote>
+                </section>
+
+                <!-- Nested Lists -->
+                <section class="article-section">
+                    <h3>Team Meeting Structure</h3>
+                    
+                    <p>Temporibus autem quibusdam et aut officiis debitis:</p>
+                    
+                    <ul>
+                        <li><strong>Daily Stand-ups (15 min)</strong>
+                            <ul>
+                                <li>What did you accomplish yesterday?</li>
+                                <li>What will you work on today?</li>
+                                <li>Any blockers or concerns?</li>
+                            </ul>
+                        </li>
+                        <li><strong>Weekly Retrospectives (60 min)</strong>
+                            <ul>
+                                <li>What went well?</li>
+                                <li>What could be improved?</li>
+                                <li>Action items for next week</li>
+                            </ul>
+                        </li>
+                        <li><strong>Monthly Team Health Checks (90 min)</strong>
+                            <ul>
+                                <li>Psychological safety assessment</li>
+                                <li>Team dynamics review</li>
+                                <li>Goal alignment discussion</li>
+                                <li>Celebration of wins</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Conclusion -->
+                <section class="article-section">
+                    <h2>Conclusion</h2>
+                    
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                </section>
+
+                <!-- Download Resources Section -->
+                <section class="article-section" style="background: var(--color-card-bg); padding: 2rem; border-radius: 8px; border-left: 4px solid #4BB78F;">
+                    <h3>📥 Download Free Resources</h3>
+                    <p>Get practical templates and tools to implement psychological safety in your team:</p>
+                    
+                    <div style="display: grid; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="#" class="download-btn" style="display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 6px; text-decoration: none; transition: all 0.3s ease;">
+                            <div>
+                                <strong style="display: block; color: var(--color-text); margin-bottom: 0.25rem;">Team Check-in Template</strong>
+                                <span style="font-size: 0.875rem; color: var(--color-text-light);">Weekly psychological safety assessment • PDF</span>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0; margin-left: 1rem;">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                        </a>
+                        
+                        <a href="#" class="download-btn" style="display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 6px; text-decoration: none; transition: all 0.3s ease;">
+                            <div>
+                                <strong style="display: block; color: var(--color-text); margin-bottom: 0.25rem;">Retrospective Framework</strong>
+                                <span style="font-size: 0.875rem; color: var(--color-text-light);">Facilitation guide with prompts • PDF</span>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0; margin-left: 1rem;">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                        </a>
+                        
+                        <a href="#" class="download-btn" style="display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 6px; text-decoration: none; transition: all 0.3s ease;">
+                            <div>
+                                <strong style="display: block; color: var(--color-text); margin-bottom: 0.25rem;">Remote Team Playbook</strong>
+                                <span style="font-size: 0.875rem; color: var(--color-text-light);">Complete guide with exercises • PDF</span>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0; margin-left: 1rem;">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Share Section -->
+                <section class="article-section" style="text-align: center; padding: 2rem 0; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+                    <h4 style="margin-bottom: 1rem;">Share this article</h4>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="https://twitter.com/intent/tweet?url=YOUR_URL&text=Building%20Psychological%20Safety%20in%20Remote%20Teams" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 6px; text-decoration: none; color: var(--color-text); transition: all 0.3s ease;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                            Twitter
+                        </a>
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=YOUR_URL" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 6px; text-decoration: none; color: var(--color-text); transition: all 0.3s ease;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                            LinkedIn
+                        </a>
+                        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 6px; color: var(--color-text); cursor: pointer; transition: all 0.3s ease;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                            </svg>
+                            Copy Link
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Related Posts Section -->
+                <section class="article-section">
+                    <h3>Related Articles</h3>
+                    <div style="display: grid; gap: 1.5rem; margin-top: 1.5rem;">
+                        <a href="#" style="display: flex; gap: 1.5rem; padding: 1.5rem; background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 8px; text-decoration: none; transition: all 0.3s ease;">
+                            <div style="flex: 1;">
+                                <span style="font-size: 0.875rem; color: #4BB78F; font-weight: 600;">People & Teams</span>
+                                <h4 style="margin: 0.5rem 0; color: var(--color-text);">Effective Feedback in Distributed Teams</h4>
+                                <p style="margin: 0; font-size: 0.9375rem; color: var(--color-text-light);">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Strategies for giving and receiving feedback remotely.</p>
+                            </div>
+                        </a>
+                        
+                        <a href="#" style="display: flex; gap: 1.5rem; padding: 1.5rem; background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 8px; text-decoration: none; transition: all 0.3s ease;">
+                            <div style="flex: 1;">
+                                <span style="font-size: 0.875rem; color: #4BB78F; font-weight: 600;">People & Teams</span>
+                                <h4 style="margin: 0.5rem 0; color: var(--color-text);">Building Trust in Virtual Environments</h4>
+                                <p style="margin: 0; font-size: 0.9375rem; color: var(--color-text-light);">Sed ut perspiciatis unde omnis iste natus error. Practical approaches to fostering trust when working remotely.</p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+            </article>
+
+            <!-- Back Link -->
+            <div class="back-link">
+                <a href="../people-and-teams.html">← Back to People & Teams</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 Jack Reed. All rights reserved.</p>
+                <div class="social-icons">
+                    <a href="https://uk.linkedin.com/in/iamjackreed" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/jack.ross.reed/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com/jackrossreed" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chart.js Scripts -->
+    <script>
+        // Pie Chart
+        const pieCtx = document.getElementById('pieChart').getContext('2d');
+        new Chart(pieCtx, {
+            type: 'pie',
+            data: {
+                labels: ['High Safety', 'Moderate Safety', 'Low Safety', 'Very Low Safety'],
+                datasets: [{
+                    data: [45, 30, 18, 7],
+                    backgroundColor: [
+                        '#4BB78F',
+                        '#F0A946',
+                        '#FE4B60',
+                        '#001E3A'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: getComputedStyle(document.documentElement).getPropertyValue('--color-text').trim()
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Distribution of Psychological Safety Levels',
+                        color: getComputedStyle(document.documentElement).getPropertyValue('--color-text').trim()
+                    }
+                }
+            }
+        });
+
+        // Bar Chart
+        const barCtx = document.getElementById('barChart').getContext('2d');
+        new Chart(barCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Innovation', 'Productivity', 'Retention', 'Collaboration', 'Job Satisfaction'],
+                datasets: [{
+                    label: 'Low Safety Teams',
+                    data: [45, 52, 48, 50, 43],
+                    backgroundColor: '#FE4B60'
+                }, {
+                    label: 'High Safety Teams',
+                    data: [85, 88, 92, 90, 87],
+                    backgroundColor: '#4BB78F'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            color: getComputedStyle(document.documentElement).getPropertyValue('--color-text').trim()
+                        },
+                        grid: {
+                            color: 'rgba(128, 128, 128, 0.1)'
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: getComputedStyle(document.documentElement).getPropertyValue('--color-text').trim()
+                        },
+                        grid: {
+                            color: 'rgba(128, 128, 128, 0.1)'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: getComputedStyle(document.documentElement).getPropertyValue('--color-text').trim()
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Performance Metrics Comparison (%)',
+                        color: getComputedStyle(document.documentElement).getPropertyValue('--color-text').trim()
+                    }
+                }
+            }
+        });
+
+        // Radar Chart
+        const radarCtx = document.getElementById('radarChart').getContext('2d');
+        new Chart(radarCtx, {
+            type: 'radar',
+            data: {
+                labels: ['Trust', 'Communication', 'Vulnerability', 'Feedback', 'Inclusion', 'Learning'],
+                datasets: [{
+                    label: 'Team A',
+                    data: [85, 78, 72, 88, 90, 82],
+                    borderColor: '#4BB78F',
+                    backgroundColor: 'rgba(75, 183, 143, 0.2)'
+                }, {
+                    label: 'Team B',
+                    data: [65, 70, 60, 68, 72, 65],
+                    borderColor: '#007A8B',
+                    backgroundColor: 'rgba(0, 122, 139, 0.2)'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            color: getComputedStyle(document.documentElement).getPropertyValue('--color-text').trim()
+                        },
+                        grid: {
+                            color: 'rgba(128, 128, 128, 0.2)'
+                        },
+                        pointLabels: {
+                            color: getComputedStyle(document.documentElement).getPropertyValue('--color-text').trim()
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: getComputedStyle(document.documentElement).getPropertyValue('--color-text').trim()
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Team Assessment Scores',
+                        color: getComputedStyle(document.documentElement).getPropertyValue('--color-text').trim()
+                    }
+                }
+            }
+        });
+
+        // Line Chart
+        const lineCtx = document.getElementById('lineChart').getContext('2d');
+        new Chart(lineCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Team Psychological Safety Score',
+                    data: [62, 65, 68, 72, 75, 78, 80, 82, 85, 87, 88, 90],
+                    borderColor: '#4BB78F',
+                    backgroundColor: 'rgba(75, 183, 143, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }, {
+                    label: 'Industry Average',
+                    data: [70, 70, 71, 71, 72, 72, 73, 73, 74, 74, 75, 75],
+                    borderColor: '#F0A946',
+                    backgroundColor: 'rgba(240, 169, 70, 0.1)',
+                    tension: 0.4,
+                    fill: true,
+                    borderDash: [5, 5]
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            color: getComputedStyle(document.documentElement).getPropertyValue('--color-text').trim()
+                        },
+                        grid: {
+                            color: 'rgba(128, 128, 128, 0.1)'
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: getComputedStyle(document.documentElement).getPropertyValue('--color-text').trim()
+                        },
+                        grid: {
+                            color: 'rgba(128, 128, 128, 0.1)'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: getComputedStyle(document.documentElement).getPropertyValue('--color-text').trim()
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: '12-Month Progress Tracking',
+                        color: getComputedStyle(document.documentElement).getPropertyValue('--color-text').trim()
+                    }
+                }
+            }
+        });
+
+        // Update chart colors on theme change
+        const observer = new MutationObserver(() => {
+            const textColor = getComputedStyle(document.documentElement).getPropertyValue('--color-text').trim();
+            Chart.helpers.each(Chart.instances, (chart) => {
+                if (chart.options.plugins.legend) {
+                    chart.options.plugins.legend.labels.color = textColor;
+                }
+                if (chart.options.plugins.title) {
+                    chart.options.plugins.title.color = textColor;
+                }
+                if (chart.options.scales) {
+                    Object.keys(chart.options.scales).forEach(scale => {
+                        if (chart.options.scales[scale].ticks) {
+                            chart.options.scales[scale].ticks.color = textColor;
+                        }
+                        if (chart.options.scales[scale].pointLabels) {
+                            chart.options.scales[scale].pointLabels.color = textColor;
+                        }
+                    });
+                }
+                chart.update();
+            });
+        });
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    </script>
+
+    <!-- Prism.js Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+
+    <script src="../main.js"></script>
+    <script src="../search.js"></script>
+</body>
+</html>

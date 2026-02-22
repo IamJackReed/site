@@ -1,0 +1,288 @@
+JACK REED PERSONAL WEBSITE - SITE MAP
+=====================================
+
+HOME (index.html)
+│
+├─ Hero Section
+│  ├─ Name: Jack Reed
+│  ├─ Tagline: Scrum Master, Business Coach, Private Investor
+│  └─ One-liner: "I care about how teams make decisions..."
+│
+├─ Core Pillars (3 cards)
+│  ├─ People & Teams ──────────────┐
+│  ├─ Product ──────────────────────┤
+│  └─ Organisation & Change ────────┤
+│                                    │
+├─ Market Diary (accent card) ──────┤
+│  [Has disclaimer gate]            │
+│                                    │
+└─ About Preview                     │
+   └─ Link to full About page        │
+                                     │
+                                     │
+ABOUT (about.html)                   │
+│                                    │
+├─ Who I Am                          │
+├─ What I Care About                 │
+│  ├─ Decisions                      │
+│  ├─ Value                          │
+│  └─ Markets                        │
+├─ How I Work                        │
+└─ Investing                         │
+                                     │
+                                     │
+PEOPLE & TEAMS (people-and-teams.html) ◄─┘
+│
+├─ Intro paragraph
+└─ Posts Grid
+   ├─ Post Card 1 ──► posts/post-1.html
+   ├─ Post Card 2 ──► posts/post-2.html
+   └─ Post Card 3 ──► posts/post-3.html
+
+
+PRODUCT (product.html) ◄──────────────┘
+│
+├─ Intro paragraph
+└─ Posts Grid
+   ├─ Post Card 1 ──► posts/post-1.html
+   ├─ Post Card 2 ──► posts/post-2.html
+   └─ Post Card 3 ──► posts/post-3.html
+
+
+ORGANISATION & CHANGE (organisation-and-change.html) ◄─┘
+│
+├─ Intro paragraph
+└─ Posts Grid
+   ├─ Post Card 1 ──► posts/post-1.html
+   ├─ Post Card 2 ──► posts/post-2.html
+   └─ Post Card 3 ──► posts/post-3.html
+
+
+MARKET DIARY (market-diary.html) ◄────────────────────┘
+│
+│ ⚠️  DISCLAIMER GATE (first visit only)
+│    ├─ "I Understand" ──► Show content
+│    └─ "Take Me Back" ──► Return to home
+│
+├─ Disclaimer Banner (always visible)
+├─ Intro paragraph
+├─ Current Holdings Table
+│  ├─ Instrument | Ticker | Region
+│  ├─ Thesis | Type | Horizon
+│  └─ 5 sample rows (editable)
+│
+└─ Investment Posts Grid
+   ├─ Post Card 1 ──► posts/market-post-1.html
+   ├─ Post Card 2 ──► posts/market-post-2.html
+   └─ Post Card 3 ──► posts/market-post-3.html
+
+
+BLOG POST (posts/*.html)
+│
+├─ Navigation (same on all pages)
+├─ Category Tag
+├─ Title & Subtitle
+├─ Date
+├─ Content Sections
+│  ├─ Section 1 (H2)
+│  ├─ Section 2 (H2)
+│  └─ Section 3 (H2)
+├─ Back Link
+└─ Footer
+
+
+INVESTMENT POST (posts/market-*.html)
+│
+│ ⚠️  DISCLAIMER GATE (first visit only)
+│
+├─ Navigation
+├─ Disclaimer Banner (always visible)
+├─ Category Tag (Market Diary)
+├─ Title & Subtitle
+├─ Date
+├─ Content Sections
+├─ Back Link
+└─ Footer
+
+
+COMPONENT SHOWCASE (component-showcase.html)
+│
+├─ Typography Examples
+├─ Disclaimer Banner Demo
+├─ Post Cards Demo
+├─ Pillar Cards Demo
+├─ Buttons & Links Demo
+├─ Holdings Table Demo
+└─ Color Palette Display
+
+
+=====================================
+NAVIGATION STRUCTURE
+=====================================
+
+All pages have the same navigation:
+
+┌─────────────────────────────────────────────────┐
+│ Jack Reed                                       │
+│                                                 │
+│ Home | People & Teams | Product |              │
+│ Organisation & Change | Market Diary | About   │
+└─────────────────────────────────────────────────┘
+
+On mobile (< 768px):
+
+┌─────────────────────────────────────────────────┐
+│ Jack Reed                              [☰ Menu] │
+└─────────────────────────────────────────────────┘
+                                         │
+                                         ▼
+                                    ┌─────────┐
+                                    │ Home    │
+                                    │ People  │
+                                    │ Product │
+                                    │ Org     │
+                                    │ Market  │
+                                    │ About   │
+                                    └─────────┘
+
+
+=====================================
+DISCLAIMER FLOW
+=====================================
+
+User Journey for Investment Content:
+
+1. User clicks "Market Diary" or investment post
+   │
+   ▼
+2. JavaScript checks: Has user accepted disclaimer?
+   │
+   ├─ YES ──► Show content with banner
+   │
+   └─ NO ──► Show full-screen gate
+              │
+              ├─ "I Understand" ──► Save to localStorage
+              │                     Show content with banner
+              │
+              └─ "Take Me Back" ──► Return to home page
+
+
+=====================================
+FILE ORGANIZATION
+=====================================
+
+Root Directory:
+├── index.html                    [Home page]
+├── about.html                    [About page]
+├── people-and-teams.html         [Category]
+├── product.html                  [Category]
+├── organisation-and-change.html  [Category]
+├── market-diary.html             [Investment - has gate]
+├── component-showcase.html       [Design reference]
+│
+├── posts/                        [All blog posts]
+│   ├── sample-market-diary-post.html
+│   └── sample-people-teams-post.html
+│
+├── styles.css                    [All styling]
+├── main.js                       [Disclaimer + nav]
+│
+└── Documentation:
+    ├── README.md
+    ├── GETTING-STARTED.md
+    ├── CUSTOMIZATION-CHECKLIST.md
+    ├── DISCLAIMER-GUIDE.md
+    ├── PROJECT-SUMMARY.md
+    ├── QUICK-REFERENCE.md
+    └── SITE-MAP.txt (this file)
+
+
+=====================================
+CONTENT CATEGORIES
+=====================================
+
+People & Teams:
+- Team collaboration
+- Decision-making
+- Ways of working
+- Agile practices
+- Coaching
+
+Product:
+- Product discovery
+- Value creation
+- Metrics
+- Delivery practices
+- Product thinking
+
+Organisation & Change:
+- Systems thinking
+- Operating models
+- Org design
+- Change management
+- Transformation
+
+Market Diary:
+- Investment thinking
+- Company analysis
+- Market observations
+- Holdings updates
+- Research notes
+[All with disclaimers]
+
+
+=====================================
+KEY FEATURES
+=====================================
+
+✓ Responsive design (mobile, tablet, desktop)
+✓ Disclaimer gate for investment content
+✓ Persistent disclaimer banner
+✓ localStorage memory
+✓ Mobile navigation
+✓ Reusable post cards
+✓ Holdings table
+✓ Semantic HTML
+✓ Accessible
+✓ No build process
+✓ No dependencies
+✓ Easy to maintain
+
+
+=====================================
+DESIGN SYSTEM
+=====================================
+
+Colors:
+- Background: #fff1e5 (soft salmon)
+- Alt Background: #ffffff (white)
+- Text: #33302e (dark brown)
+- Accent: #990f3d (deep red)
+- Border: #e0d7cc (light tan)
+
+Typography:
+- Headings: Georgia (serif)
+- Body: System sans-serif
+- Base: 17px / 1.6 line height
+
+Spacing:
+- XS: 0.5rem
+- SM: 1rem
+- MD: 1.5rem
+- LG: 2rem
+- XL: 3rem
+- XXL: 4rem
+
+Components:
+- Post Card
+- Pillar Card
+- Disclaimer Banner
+- Disclaimer Gate
+- Holdings Table
+- Navigation
+- Footer
+
+
+=====================================
+END OF SITE MAP
+=====================================

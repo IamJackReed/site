@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation Over Precision: What Modern Product Teams Do Differently | Jack Reed</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dark-theme.css">
+    <link rel="stylesheet" href="../light-theme.css">
+    <link rel="stylesheet" href="../theme-toggle.css">
+    <style>
+        /* Post Image - Responsive */
+        .post-image {
+            width: 100%;
+            margin: 2rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .post-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+        
+        /* Desktop - larger screens */
+        @media (min-width: 1024px) {
+            .post-image {
+                margin: 2.5rem 0;
+            }
+        }
+        
+        /* Tablet */
+        @media (max-width: 1023px) and (min-width: 768px) {
+            .post-image {
+                margin: 2rem 0;
+            }
+        }
+        
+        /* Mobile */
+        @media (max-width: 767px) {
+            .post-image {
+                margin: 1.5rem 0;
+                border-radius: 4px;
+            }
+        }
+        
+        /* Key Takeaways Box */
+        .key-takeaways {
+            background: linear-gradient(135deg, rgba(75, 183, 143, 0.1), rgba(0, 122, 139, 0.1));
+            border-left: 4px solid #4BB78F;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .key-takeaways h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0;
+            color: #4BB78F;
+        }
+        
+        .key-takeaways ul {
+            margin-bottom: 0;
+        }
+        
+        .key-takeaways li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .key-takeaways li:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <a href="/" class="nav-logo">Jack Reed</a>
+            <div class="nav-search">
+                <input type="text" id="search-input" placeholder="Search posts by hashtag..." aria-label="Search posts">
+                <button id="search-button" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../people-and-teams.html">People & Teams</a></li>
+                <li><a href="../product.html">Product</a></li>
+                <li><a href="../organisation-and-change.html">Organisation & Change</a></li>
+                <li><a href="../market-diary.html">Market Diary</a></li>
+                <li><a href="../about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="content-page">
+        <div class="container">
+            <article class="article">
+                <header class="article-header">
+                    <span class="post-category">Product</span>
+                    <h1>Validation Over Precision: What Modern Product Teams Do Differently</h1>
+                    <p class="article-subtitle">Looking into what makes great software</p>
+                    <div class="article-meta">
+                        <time datetime="2026-01-25">25 January 2026</time>
+                    </div>
+                </header>
+
+                <!-- Post Image -->
+                <div class="post-image">
+                    <img src="https://res.cloudinary.com/dj6poiukp/image/upload/v1769380499/validation-over-prediction_dbty2s.png" alt="Validation Over Precision" />
+                </div>
+
+                <!-- TL;DR Summary -->
+                <div class="key-takeaways">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        TL;DR Summary
+                    </h3>
+                    <p>Delivering great software is not just a matter of execution discipline or reliable processes. It is about discovering and responding to opportunities as they arise, and building organisations that can adapt without friction.</p>
+
+                    <p><strong>In practice this means:</strong></p>
+                    <ul>
+                        <li>framing work around customer value and evidence, not just requirements,</li>
+                        <li>investing early to validate, not predict,</li>
+                        <li>shortening feedback loops and embracing change as part of the work,</li>
+                        <li>adopting iterative delivery and vertical slices of functionality,</li>
+                        <li>cultivating teams that treat feedback as fuel rather than noise,</li>
+                        <li>enabling optionality so strategic pivots are possible without massive cost.</li>
+                    </ul>
+                    <p>UK organisations such as Monzo, GOV.UK / Government Digital Service, and public sector bodies like NHS Digital illustrate how feedback, agile delivery and customer-centric design play out in real environments.</p>
+                    <p>This article explains why these are not nice-to-haves but essential capabilities in modern software development.</p>
+                </div>
+
+                <!-- Introduction -->
+                <section class="article-section">
+                    <h2>Introduction: Why Discipline Alone Isn't Enough</h2>
+                    
+                    <p>There are many contributing factors that help build good software. Having reliable processes that support a consistent delivery pace is a sensible place to start. Working environments that encourage continuous improvement also help introduce quality and consistency into the codebase.</p>
+                    
+                    <p>But technical excellence and disciplined processes alone are not sufficient.</p>
+                    
+                    <p>Another critical factor is the ability to recognise opportunities when they arise, and to be agile enough to take advantage of them. This distinction — between predictable execution and adaptive enablement — is where many teams struggle. Some organisations excel at one but not the other. The highest performance comes from mastering both.</p>
+                    
+                    <p><strong>In other words:</strong></p>
+                    
+                    <blockquote>
+                        <p>Delivery discipline helps you get better at building what you already intend. Agility helps you discover what you ought to build in the first place.</p>
+                    </blockquote>
+                </section>
+
+                <!-- Section 1 -->
+                <section class="article-section">
+                    <h2>1. Front-Loading Investment for Learning, Not Prediction</h2>
+                    
+                    <p>Teams often fall into the trap of thinking that more upfront analysis will reduce uncertainty. Traditional requirements documents can feel like a shield against chaos.</p>
+                    
+                    <p>Yet in complex domains — especially in software — uncertainty is inherent. The challenge isn't to eliminate it, but to learn through it.</p>
+                    
+                    <p><strong>A better framing is:</strong></p>
+                    
+                    <blockquote>
+                        <p>Invest early to understand what you can validate, not what you can predict.</p>
+                    </blockquote>
+                    
+                    <p>To do this:</p>
+                    
+                    <ul>
+                        <li><strong>Prioritise by value</strong> — ask the business to articulate the relative value of requirements.</li>
+                        <li><strong>Estimate comparatively</strong> — encourage the team to size work relatively rather than produce absolute effort estimates.</li>
+                        <li><strong>Align understanding</strong> — use this shared context to assess risk and scope from both business and technical perspectives.</li>
+                    </ul>
+                    
+                    <p>This approach yields early insight and helps teams avoid discovering misalignment halfway through delivery, when change becomes most expensive.</p>
+                    
+                    <p>This idea echoes modern product thinking that emphasises validation over extended upfront prediction and positions evidence as the foundation for investment decisions.</p>
+                </section>
+
+                <!-- Section 2 -->
+                <section class="article-section">
+                    <h2>2. Change Is Not Disruption: It Is the Work</h2>
+                    
+                    <p>In many organisations, "change" is spoken about in a negative or inconvenient tone. But in practice, change is the output of learning. Every new insight — from customer behaviour, regulatory shifts, technical risk, competitive signals, or stakeholder feedback — is information that teams should be able to act on without friction.</p>
+                    
+                    <p>Indeed, government digital services in the UK operate under a framework that embeds agile principles as a requirement for delivering public services. The GOV.UK service manual encourages teams to design, build and run services in ways that respond quickly to users' needs and changing circumstances rather than waiting until the end of a long sequential cycle.</p>
+                    
+                    <blockquote>
+                        <p>Change should be welcomed, not feared.</p>
+                    </blockquote>
+                </section>
+
+                <!-- Section 3 -->
+                <section class="article-section">
+                    <h2>3. Feedback as the Steering Mechanism</h2>
+                    
+                    <p>Delivering high-quality value to customers must be the central focus, and this requires active engagement with feedback.</p>
+                    
+                    <p>Feedback should be sought not just from internal stakeholders, but from actual users and real customer behaviour. Gather it early and frequently:</p>
+                    
+                    <ul>
+                        <li><strong>Customers</strong> — to confirm value and desirability.</li>
+                        <li><strong>End users</strong> — to understand usability and adoption.</li>
+                        <li><strong>The team</strong> — to improve ways of working.</li>
+                        <li><strong>Operational monitors</strong> — to identify friction or risk.</li>
+                        <li><strong>Retrospectives</strong> — to expose opportunities for systemic improvement.</li>
+                    </ul>
+                    
+                    <p>If teams only measure progress in terms of output — lines of code, features completed, story points delivered — they are blind to the most important question: <em>Is what we are building actually useful?</em></p>
+                    
+                    <blockquote>
+                        <p>Shorter feedback loops enable learning, and learning reduces risk.</p>
+                    </blockquote>
+                </section>
+
+                <!-- Section 4 -->
+                <section class="article-section">
+                    <h2>4. Small Increments Make Change Easier</h2>
+                    
+                    <p>When changes are introduced in large batches, they feel risky and disruptive. When they arrive in small, iterative increments, change becomes normal, predictable and manageable.</p>
+                    
+                    <p>Strong organisations accelerate value delivery by:</p>
+                    
+                    <ul>
+                        <li>releasing frequently,</li>
+                        <li>validating each slice,</li>
+                        <li>adjusting based on evidence before proceeding.</li>
+                    </ul>
+                    
+                    <p>This is one of the reasons why continuous delivery and deployment practices are admired in engineering cultures: they collapse the time between idea and customer feedback. Although not every organisation needs to release dozens of times per day, having the capability to do so homogenises risk and makes feedback loops rapid.</p>
+                </section>
+
+                <!-- Section 5 -->
+                <section class="article-section">
+                    <h2>5. Sprint Cycles as Feedback Containers</h2>
+                    
+                    <p>Sprint cycles are often debated as though there were a single right answer. In practice, the purpose of a cycle length is to balance two things:</p>
+                    
+                    <ul>
+                        <li>enough time to produce meaningful change,</li>
+                        <li>short enough time to get relevant feedback early.</li>
+                    </ul>
+                    
+                    <p>Two to three weeks tends to work well in many contexts because it encourages regular feedback without calendar overheads. But the key is not the length itself — it's the purpose:</p>
+                    
+                    <blockquote>
+                        <p>Deliver vertical slices of functionality that can be demonstrated, evaluated and learned from within each cycle.</p>
+                    </blockquote>
+                    
+                    <p>A vertical slice means:</p>
+                    
+                    <ul>
+                        <li>business value,</li>
+                        <li>technical depth,</li>
+                        <li>user-facing behaviour,</li>
+                        <li>demonstrable feedback potential.</li>
+                    </ul>
+                    
+                    <p>Every increment that doesn't deliver observable value is a learning opportunity delayed.</p>
+                </section>
+
+                <!-- Section 6 -->
+                <section class="article-section">
+                    <h2>6. Optionality as Strategic Advantage</h2>
+                    
+                    <p>The real advantage of agility is optionality — the ability to respond to what you learn with minimal downside cost.</p>
+                    
+                    <p>Optionality means:</p>
+                    
+                    <ul>
+                        <li>abandoning what doesn't work,</li>
+                        <li>accelerating what does,</li>
+                        <li>pivoting when new information illuminates better paths,</li>
+                        <li>protecting future choices by avoiding over-commitment.</li>
+                    </ul>
+                    
+                    <p>It is why many UK organisations intentionally build platforms and modular capabilities that can be reconfigured as needs change. GOV.UK's design principles, for example, emphasise iteration and simplicity, embedding "start with user needs then iterate" into governance.</p>
+                    
+                    <blockquote>
+                        <p>This philosophy encourages teams to architect for change, not against it.</p>
+                    </blockquote>
+                </section>
+
+                <!-- UK Case Studies -->
+                <section class="article-section">
+                    <h2>UK Case Studies in Practice</h2>
+                    
+                    <h3>Monzo: Rapid Feedback Through Frequent Delivery</h3>
+                    
+                    <p>Monzo's engineering culture is well documented for how frequently it deploys code. The bank has shared that its teams deploy to production more than 100 times per day, structuring work such that friction between idea and user feedback is minimised. This allows the company to double down on valuable work and discard what doesn't improve outcomes.</p>
+                    
+                    <p>This approach illustrates a long-held principle in agile and product leadership: make change incremental and fast enough that you see the effects while you can still act on what you learn.</p>
+                    
+                    <h3>GOV.UK / Government Digital Service: Iteration Beyond UI</h3>
+                    
+                    <p>The Government Digital Service (GDS) is a unit of UK government responsible for transforming how public services are delivered online. Built around iterative delivery and user-centric principles, GDS moved away from traditional waterfall approaches to a model that emphasises frequent learning and adaptation.</p>
+                    
+                    <p>Most UK central government services now require agile methods, and the Service Manual strongly encourages iteration beginning in discovery and continuing through alpha, beta and live phases.</p>
+                    
+                    <h3>NHS Digital: Agile for Public Service Impact</h3>
+                    
+                    <p>The NHS service standard explicitly calls for agile ways of working, ensuring teams can adapt and respond to user needs quickly. This reflects the reality that citizen-facing health services must remain responsive in the face of changing demands, regulatory shifts and emergent requirements.</p>
+                </section>
+
+                <!-- Product Thinking -->
+                <section class="article-section">
+                    <h2>Product Thinking: Vision, Value and Validation</h2>
+                    
+                    <p>Modern product practice distinguishes between outputs (features built) and outcomes (value realised). A product mindset puts the customer's problem at the centre and treats hypotheses as provisional until validated.</p>
+                    
+                    <p>Effective product teams cultivate four core stances:</p>
+                    
+                    <ul>
+                        <li><strong>Visionary</strong> — charting a direction informed by evidence and context.</li>
+                        <li><strong>Collaborator</strong> — engaging diverse stakeholders to align on value.</li>
+                        <li><strong>Experimenter</strong> — testing assumptions early and often.</li>
+                        <li><strong>Decision maker</strong> — using data and evidence to make trade-offs.</li>
+                    </ul>
+                    
+                    <p>These stances ensure teams are not just efficient at building, but effective at learning what matters to build.</p>
+                </section>
+
+                <!-- Systems Thinking -->
+                <section class="article-section">
+                    <h2>Systems Thinking: Feedback Loops and Constraints</h2>
+                    
+                    <p>From a systems perspective, software delivery is a network of feedback loops: between users and teams, between teams and strategy, between delivery and operational reality. Understanding how these loops interact helps remove bottlenecks and unintended consequences.</p>
+                    
+                    <p>Short feedback loops reduce uncertainty; large batches increase it. Tight feedback loops amplify learning and surface constraints early, enabling teams to address them before they become costly.</p>
+                </section>
+
+                <!-- Conclusion -->
+                <section class="article-section">
+                    <h2>Conclusion: Build the Right Thing, Not Just Build It Well</h2>
+                    
+                    <p>The core message is not radical:</p>
+                    
+                    <ul>
+                        <li>seek evidence early,</li>
+                        <li>deliver iteratively,</li>
+                        <li>learn quickly,</li>
+                        <li>adapt without friction,</li>
+                        <li>focus on value and outcomes.</li>
+                    </ul>
+                    
+                    <p>This approach reduces risk, improves customer outcomes, and increases the likelihood of delivering on time and within budget — not by predicting the future, but by responding to it as it reveals itself.</p>
+                    
+                    <blockquote>
+                        <p>When you build software this way, work is not only more effective; it is also more rewarding.</p>
+                    </blockquote>
+                </section>
+
+                <!-- References -->
+                <section class="article-section">
+                    <h2>References</h2>
+                    
+                    <ul>
+                        <li>Beck, K., et al. (2001). <em>Manifesto for Agile Software Development</em>.</li>
+                        <li>Monzo. (2022). <em>How we deploy to production over 100 times a day</em>.</li>
+                        <li>UK Government Digital Service. (n.d.). <em>Agile delivery – Service Manual</em>.</li>
+                        <li>UK Government. (n.d.). <em>Service design principles</em>.</li>
+                        <li>NHS. (n.d.). <em>NHS service standard – Use agile ways of working</em>.</li>
+                    </ul>
+                </section>
+            </article>
+
+            <!-- Back Link -->
+            <div class="back-link">
+                <a href="../product.html">← Back to Product</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 Jack Reed. All rights reserved.</p>
+                <div class="social-icons">
+                    <a href="https://uk.linkedin.com/in/iamjackreed" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/jack.ross.reed/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com/jackrossreed" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../main.js"></script>
+</body>
+</html>
