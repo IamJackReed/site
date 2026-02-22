@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component Showcase | Jack Reed</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dark-theme.css">
+    <link rel="stylesheet" href="light-theme.css">
+    <link rel="stylesheet" href="theme-toggle.css">
+    <style>
+        .showcase-section {
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--color-border);
+        }
+        .showcase-title {
+            background-color: var(--color-text);
+            color: var(--color-bg-alt);
+            padding: 0.5rem 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Jack Reed</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="people-and-teams.html">People & Teams</a></li>
+                <li><a href="product.html">Product</a></li>
+                <li><a href="organisation-and-change.html">Organisation & Change</a></li>
+                <li><a href="market-diary.html">Market Diary</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="content-page">
+        <div class="container">
+            <header class="page-header">
+                <h1>Component Showcase</h1>
+                <p class="page-intro">This page demonstrates all the design components used across the site. Use it as a reference when creating new content.</p>
+            </header>
+
+            <!-- Typography -->
+            <section class="showcase-section">
+                <div class="showcase-title">Typography</div>
+                <h1>Heading 1 - Georgia Serif</h1>
+                <h2>Heading 2 - Georgia Serif</h2>
+                <h3>Heading 3 - Georgia Serif</h3>
+                <p>Body text uses a clean sans-serif font stack. This is what regular paragraphs look like. The line height is set to 1.6 for optimal readability.</p>
+                <p><strong>Bold text</strong> and <a href="#">link text</a> are styled consistently across the site.</p>
+                <ul>
+                    <li>Unordered list item one</li>
+                    <li>Unordered list item two</li>
+                    <li>Unordered list item three</li>
+                </ul>
+            </section>
+
+            <!-- Disclaimer Banner -->
+            <section class="showcase-section">
+                <div class="showcase-title">Disclaimer Banner (Investment Pages)</div>
+                <div class="disclaimer-banner">
+                    <h3>⚠️ Disclaimer</h3>
+                    <p><strong>Nothing on this site is financial advice.</strong> These are my personal notes and opinions, shared for educational and informational purposes only. They do not constitute investment advice, recommendation, or invitation to buy or sell any security.</p>
+                </div>
+            </section>
+
+            <!-- Post Cards -->
+            <section class="showcase-section">
+                <div class="showcase-title">Post Cards</div>
+                <div class="posts-grid">
+                    <article class="post-card">
+                        <span class="post-category">People & Teams</span>
+                        <h2 class="post-title">Standard Post Card</h2>
+                        <p class="post-excerpt">This is what a regular post card looks like. It includes a category tag, title, excerpt, and metadata.</p>
+                        <div class="post-meta">
+                            <time datetime="2026-01-23">23 January 2026</time>
+                            <a href="#" class="post-link">Read more →</a>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <span class="post-category post-category--investing">Market Diary</span>
+                        <h2 class="post-title">Investment Post Card</h2>
+                        <p class="post-excerpt">Investment posts use a different category color to distinguish them from other content.</p>
+                        <div class="post-meta">
+                            <time datetime="2026-01-23">23 January 2026</time>
+                            <a href="#" class="post-link">Read more →</a>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <span class="post-category">Product</span>
+                        <h2 class="post-title">Another Post Card</h2>
+                        <p class="post-excerpt">Cards are responsive and stack on mobile devices for easy reading.</p>
+                        <div class="post-meta">
+                            <time datetime="2026-01-23">23 January 2026</time>
+                            <a href="#" class="post-link">Read more →</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Pillar Cards -->
+            <section class="showcase-section">
+                <div class="showcase-title">Pillar Cards (Home Page)</div>
+                <div class="pillar-grid">
+                    <article class="pillar-card">
+                        <h2>Standard Pillar</h2>
+                        <p>This is a standard pillar card used on the home page to highlight core content areas.</p>
+                        <a href="#" class="btn-link">Explore →</a>
+                    </article>
+
+                    <article class="pillar-card pillar-card--accent">
+                        <h2>Accent Pillar</h2>
+                        <p>The Market Diary pillar uses an accent border to make it stand out.</p>
+                        <a href="#" class="btn-link">Read →</a>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Buttons -->
+            <section class="showcase-section">
+                <div class="showcase-title">Buttons & Links</div>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                    <button class="btn-primary">Primary Button</button>
+                    <button class="btn-outline">Outline Button</button>
+                </div>
+                <p><a href="#" class="btn-link">Inline link with arrow →</a></p>
+                <p><a href="#" class="btn-secondary">Secondary link style →</a></p>
+            </section>
+
+            <!-- Holdings Table -->
+            <section class="showcase-section">
+                <div class="showcase-title">Holdings Table</div>
+                <div class="table-wrapper">
+                    <table class="holdings-table">
+                        <thead>
+                            <tr>
+                                <th>Instrument</th>
+                                <th>Ticker</th>
+                                <th>Region</th>
+                                <th>Thesis Short-Hand</th>
+                                <th>Holding Type</th>
+                                <th>Time Horizon</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Example Company</td>
+                                <td>EXMP</td>
+                                <td>UK</td>
+                                <td>Strong moat, pricing power</td>
+                                <td>Core</td>
+                                <td>5+ years</td>
+                            </tr>
+                            <tr>
+                                <td>Another Company</td>
+                                <td>ANTH</td>
+                                <td>US</td>
+                                <td>Turnaround play</td>
+                                <td>Opportunistic</td>
+                                <td>2-3 years</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Color Palette -->
+            <section class="showcase-section">
+                <div class="showcase-title">Color Palette</div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <div style="background-color: var(--color-bg); padding: 2rem; border: 1px solid var(--color-border);">
+                        <strong>Background</strong><br>
+                        <code>#fff1e5</code>
+                    </div>
+                    <div style="background-color: var(--color-bg-alt); padding: 2rem; border: 1px solid var(--color-border);">
+                        <strong>Alt Background</strong><br>
+                        <code>#ffffff</code>
+                    </div>
+                    <div style="background-color: var(--color-text); color: white; padding: 2rem;">
+                        <strong>Text</strong><br>
+                        <code>#33302e</code>
+                    </div>
+                    <div style="background-color: var(--color-accent); color: white; padding: 2rem;">
+                        <strong>Accent</strong><br>
+                        <code>#990f3d</code>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Back Link -->
+            <div class="back-link">
+                <a href="index.html">← Back to Home</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 Jack Reed. All rights reserved.</p>
+                <div class="social-icons">
+                    <a href="https://uk.linkedin.com/in/iamjackreed" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/jack.ross.reed/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com/jackrossreed" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

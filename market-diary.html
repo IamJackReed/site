@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Diary | Jack Reed</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dark-theme.css">
+    <link rel="stylesheet" href="light-theme.css">
+    <link rel="stylesheet" href="theme-toggle.css">
+    <style>
+        .dashboard-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(26, 140, 255, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard-card {
+                padding: 2rem !important;
+            }
+            
+            .dashboard-card h2 {
+                font-size: 1.5rem !important;
+            }
+            
+            .dashboard-card p {
+                font-size: 1rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <a href="/" class="nav-logo">Jack Reed</a>
+            <div class="nav-search">
+                <input type="text" id="search-input" placeholder="Search posts by hashtag..." aria-label="Search posts">
+                <button id="search-button" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="people-and-teams.html">People & Teams</a></li>
+                <li><a href="product.html">Product</a></li>
+                <li><a href="organisation-and-change.html">Organisation & Change</a></li>
+                <li><a href="market-diary.html">Market Diary</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="content-page market-diary-page">
+        <div class="container">
+            <!-- Disclaimer Banner -->
+            <div class="disclaimer-banner">
+                <h3>⚠️ Disclaimer</h3>
+                <p><strong>Nothing on this site is financial advice.</strong> These are my personal notes and opinions, shared for educational and informational purposes only. They do not constitute investment advice, recommendation, or invitation to buy or sell any security. Please do your own research and, if needed, speak to a regulated financial adviser.</p>
+            </div>
+
+            <header class="page-header">
+                <h1>Market Diary</h1>
+                <p class="page-intro">This is my personal market diary, a place where I dump my thinking about markets, companies, and capital allocation. It's NOT advice. It's just a record of trades and how I think about investing.</p>
+            </header>
+
+            <!-- My Holdings - Featured -->
+            <section class="featured-dashboard" style="margin-bottom: 3rem;">
+                <a href="my-holdings.html" class="dashboard-card" style="display: block; background: linear-gradient(135deg, var(--color-accent) 0%, #1a8cff 100%); border: 2px solid var(--color-accent); padding: 2rem; border-radius: 10px; text-decoration: none; transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; overflow: hidden;">
+                    <div style="position: relative; z-index: 2;">
+                        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                            <span style="font-size: 2rem;">📊</span>
+                            <span style="background: rgba(255,255,255,0.2); color: white; padding: 0.4rem 0.9rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Live Holdings</span>
+                        </div>
+                        <h2 style="font-size: 1.5rem; font-weight: 700; color: white; margin-bottom: 0.75rem;">My Holdings</h2>
+                        <p style="font-size: 1rem; line-height: 1.5; color: rgba(255,255,255,0.95); margin-bottom: 1.25rem;">My live portfolio with performance metrics, asset allocation, and my holdings info.</p>
+                        <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: white; color: var(--color-accent); padding: 0.65rem 1.25rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem;">
+                            View My Holdings
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left: 0.25rem;">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div style="position: absolute; top: -50%; right: -10%; width: 250px; height: 250px; background: rgba(255,255,255,0.1); border-radius: 50%; z-index: 1;"></div>
+                    <div style="position: absolute; bottom: -30%; left: -5%; width: 180px; height: 180px; background: rgba(255,255,255,0.08); border-radius: 50%; z-index: 1;"></div>
+                </a>
+            </section>
+
+            <!-- Investment Posts -->
+            <section class="posts-section" style="margin-bottom: 4rem;">
+                <h2>Investment Notes</h2>
+                <div class="posts-grid">
+                    <!-- Placeholder post cards - replace with real content -->
+                    <article class="post-card">
+                        <span class="post-category post-category--investing">Market Diary</span>
+                        <h2 class="post-title">Why I'm Watching the UK defence industry</h2>
+                        <p class="post-excerpt">Exploring government spending increases, geopolitical shifts, and emerging opportunities in UK defence contractors.</p>
+                        <p class="post-tags">#Defence #UKStocks #SectorAnalysis</p>
+                        <div class="post-meta">
+                            <time datetime="2026-01-20">20 January 2026</time>
+                            <a href="posts/market-diary-post-coming-soon.html" class="post-link">Read more →</a>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <span class="post-category post-category--investing">Market Diary</span>
+                        <h2 class="post-title">Thesis: MEGP.</h2>
+                        <p class="post-excerpt">Analysing Micro Focus Enterprise Group's business model, competitive moat, and potential mispricing in the current market.</p>
+                        <p class="post-tags">#InvestmentThesis #ValueInvesting #TechStocks</p>
+                        <div class="post-meta">
+                            <time datetime="2026-01-14">14 January 2026</time>
+                            <a href="posts/market-diary-post-coming-soon.html" class="post-link">Read more →</a>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <span class="post-category post-category--investing">Market Diary</span>
+                        <h2 class="post-title">Market Notes: January 2026</h2>
+                        <p class="post-excerpt">Monthly observations on market sentiment, sector rotation patterns, and key themes shaping investment decisions.</p>
+                        <p class="post-tags">#MarketAnalysis #MonthlyReview #InvestmentStrategy</p>
+                        <div class="post-meta">
+                            <time datetime="2026-01-07">7 January 2026</time>
+                            <a href="posts/market-diary-post-coming-soon.html" class="post-link">Read more →</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Company Analysis & Scoring -->
+            <section class="holdings-section" style="margin-bottom: 4rem;">
+                <h2>Company Analysis & Scoring</h2>
+                <p style="font-size: 1.125rem; line-height: 1.7; color: var(--color-text-light); margin-bottom: 2rem; max-width: 900px;">Below are a list of the companies I'm reviewing currently. I score them across multiple dimensions: potential, growth, value, momentum, health, and efficiency, to help me think through where the opportunities might be.</p>
+                <div class="table-wrapper">
+                    <table class="holdings-table scoring-table">
+                        <thead>
+                            <tr>
+                                <th>Company</th>
+                                <th>Potential</th>
+                                <th>Growth</th>
+                                <th>Value</th>
+                                <th>Momentum</th>
+                                <th>Health</th>
+                                <th>Efficiency</th>
+                                <th>Score</th>
+                                <th>Rank</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>STAFFLINE GROUP (STAF)</strong></td>
+                                <td><span class="score-badge score-high">39</span></td>
+                                <td><span class="score-badge score-high">11</span></td>
+                                <td><span class="score-badge score-high">8</span></td>
+                                <td><span class="score-badge score-high">19</span></td>
+                                <td><span class="score-badge score-medium">6</span></td>
+                                <td><span class="score-badge score-low">3</span></td>
+                                <td><strong>86</strong></td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td><strong>DISTRIBUTION FINANCE CAPITAL (DFCH)</strong></td>
+                                <td><span class="score-badge score-high">33</span></td>
+                                <td><span class="score-badge score-high">12</span></td>
+                                <td><span class="score-badge score-high">12</span></td>
+                                <td><span class="score-badge score-high">19</span></td>
+                                <td><span class="score-badge score-medium">6</span></td>
+                                <td><span class="score-badge score-low">4</span></td>
+                                <td><strong>86</strong></td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td><strong>TOPPS TILES (TPT) (D)</strong></td>
+                                <td><span class="score-badge score-high">37</span></td>
+                                <td><span class="score-badge score-high">11</span></td>
+                                <td><span class="score-badge score-high">8</span></td>
+                                <td><span class="score-badge score-high">19</span></td>
+                                <td><span class="score-badge score-low">4</span></td>
+                                <td><span class="score-badge score-medium">5</span></td>
+                                <td><strong>84</strong></td>
+                                <td style="color: #4169E1; font-weight: 600;">3</td>
+                            </tr>
+                            <tr>
+                                <td><strong>ASA INTERNATIONAL (ASAI)</strong></td>
+                                <td><span class="score-badge score-high">43</span></td>
+                                <td><span class="score-badge score-medium">8</span></td>
+                                <td><span class="score-badge score-high">8</span></td>
+                                <td><span class="score-badge score-high">19</span></td>
+                                <td><span class="score-badge score-low">2</span></td>
+                                <td><span class="score-badge score-low">2</span></td>
+                                <td><strong>82</strong></td>
+                                <td style="color: #DC143C; font-weight: 600;">4</td>
+                            </tr>
+                            <tr>
+                                <td><strong>YU GROUP (YU.) (D) *</strong></td>
+                                <td><span class="score-badge score-high">33</span></td>
+                                <td><span class="score-badge score-high">11</span></td>
+                                <td><span class="score-badge score-high">8</span></td>
+                                <td><span class="score-badge score-high">19</span></td>
+                                <td><span class="score-badge score-medium">6</span></td>
+                                <td><span class="score-badge score-low">3</span></td>
+                                <td><strong>80</strong></td>
+                                <td style="color: #DC143C; font-weight: 600;">5</td>
+                            </tr>
+                            <tr>
+                                <td><strong>JOURNEO (JNEO) *</strong></td>
+                                <td><span class="score-badge score-medium">31</span></td>
+                                <td><span class="score-badge score-high">10</span></td>
+                                <td><span class="score-badge score-high">8</span></td>
+                                <td><span class="score-badge score-high">19</span></td>
+                                <td><span class="score-badge score-medium">6</span></td>
+                                <td><span class="score-badge score-low">4</span></td>
+                                <td><strong>78</strong></td>
+                                <td style="color: #4169E1; font-weight: 600;">6</td>
+                            </tr>
+                            <tr>
+                                <td><strong>ASHTEAD TECHNOLOGY (AT.) (D)</strong></td>
+                                <td><span class="score-badge score-high">35</span></td>
+                                <td><span class="score-badge score-medium">8</span></td>
+                                <td><span class="score-badge score-high">8</span></td>
+                                <td><span class="score-badge score-high">19</span></td>
+                                <td><span class="score-badge score-low">2</span></td>
+                                <td><span class="score-badge score-medium">6</span></td>
+                                <td><strong>78</strong></td>
+                                <td style="color: #DC143C; font-weight: 600;">7</td>
+                            </tr>
+                            <tr>
+                                <td><strong>HERCULES (HERC) (D) *</strong></td>
+                                <td><span class="score-badge score-high">35</span></td>
+                                <td><span class="score-badge score-high">12</span></td>
+                                <td><span class="score-badge score-low">4</span></td>
+                                <td><span class="score-badge score-high">19</span></td>
+                                <td><span class="score-badge score-low">3</span></td>
+                                <td><span class="score-badge score-low">3</span></td>
+                                <td><strong>76</strong></td>
+                                <td style="color: #DC143C; font-weight: 600;">8</td>
+                            </tr>
+                            <tr>
+                                <td><strong>ANPARIO (ANP) (D)</strong></td>
+                                <td><span class="score-badge score-high">33</span></td>
+                                <td><span class="score-badge score-medium">8</span></td>
+                                <td><span class="score-badge score-low">4</span></td>
+                                <td><span class="score-badge score-high">19</span></td>
+                                <td><span class="score-badge score-medium">6</span></td>
+                                <td><span class="score-badge score-medium">6</span></td>
+                                <td><strong>76</strong></td>
+                                <td style="color: #DC143C; font-weight: 600;">9</td>
+                            </tr>
+                            <tr>
+                                <td><strong>RAMSDENS HOLDINGS (RFX) * (D)</strong></td>
+                                <td><span class="score-badge score-medium">27</span></td>
+                                <td><span class="score-badge score-medium">8</span></td>
+                                <td><span class="score-badge score-high">8</span></td>
+                                <td><span class="score-badge score-high">19</span></td>
+                                <td><span class="score-badge score-medium">6</span></td>
+                                <td><span class="score-badge score-medium">6</span></td>
+                                <td><strong>74</strong></td>
+                                <td style="color: #DC143C; font-weight: 600;">10</td>
+                            </tr>
+                            <tr>
+                                <td><strong>TRUFIN (TRU)</strong></td>
+                                <td><span class="score-badge score-high">33</span></td>
+                                <td><span class="score-badge score-high">12</span></td>
+                                <td><span class="score-badge score-low">0</span></td>
+                                <td><span class="score-badge score-high">19</span></td>
+                                <td><span class="score-badge score-medium">6</span></td>
+                                <td><span class="score-badge score-low">4</span></td>
+                                <td><strong>74</strong></td>
+                                <td style="color: #DC143C; font-weight: 600;">11</td>
+                            </tr>
+                            <tr>
+                                <td><strong>SECURE TRUST BANK (STB) (D)</strong></td>
+                                <td><span class="score-badge score-high">34</span></td>
+                                <td><span class="score-badge score-medium">7</span></td>
+                                <td><span class="score-badge score-high">8</span></td>
+                                <td><span class="score-badge score-high">19</span></td>
+                                <td><span class="score-badge score-medium">6</span></td>
+                                <td><span class="score-badge score-low">0</span></td>
+                                <td><strong>74</strong></td>
+                                <td style="color: #DC143C; font-weight: 600;">12</td>
+                            </tr>
+                            <tr>
+                                <td><strong>GULF MARINE SERVICES (GMS)</strong></td>
+                                <td><span class="score-badge score-high">33</span></td>
+                                <td><span class="score-badge score-medium">6</span></td>
+                                <td><span class="score-badge score-high">8</span></td>
+                                <td><span class="score-badge score-high">19</span></td>
+                                <td><span class="score-badge score-low">1</span></td>
+                                <td><span class="score-badge score-medium">6</span></td>
+                                <td><strong>73</strong></td>
+                                <td>13</td>
+                            </tr>
+                            <tr>
+                                <td><strong>WATER INTELLIGENCE (WATR) *</strong></td>
+                                <td><span class="score-badge score-medium">29</span></td>
+                                <td><span class="score-badge score-high">9</span></td>
+                                <td><span class="score-badge score-high">8</span></td>
+                                <td><span class="score-badge score-high">19</span></td>
+                                <td><span class="score-badge score-low">3</span></td>
+                                <td><span class="score-badge score-low">4</span></td>
+                                <td><strong>72</strong></td>
+                                <td style="color: #4169E1; font-weight: 600;">14</td>
+                            </tr>
+                            <tr>
+                                <td><strong>QUARTIX TECHNOLOGIES (QTX) (D) *</strong></td>
+                                <td><span class="score-badge score-high">33</span></td>
+                                <td><span class="score-badge score-high">10</span></td>
+                                <td><span class="score-badge score-low">4</span></td>
+                                <td><span class="score-badge score-high">13</span></td>
+                                <td><span class="score-badge score-medium">6</span></td>
+                                <td><span class="score-badge score-medium">6</span></td>
+                                <td><strong>72</strong></td>
+                                <td style="color: #DC143C; font-weight: 600;">15</td>
+                            </tr>
+                            <tr>
+                                <td><strong>GATTACA (GATC) (D) *</strong></td>
+                                <td><span class="score-badge score-high">35</span></td>
+                                <td><span class="score-badge score-medium">6</span></td>
+                                <td><span class="score-badge score-low">4</span></td>
+                                <td><span class="score-badge score-high">19</span></td>
+                                <td><span class="score-badge score-medium">6</span></td>
+                                <td><span class="score-badge score-low">2</span></td>
+                                <td><strong>72</strong></td>
+                                <td style="color: #DC143C; font-weight: 600;">16</td>
+                            </tr>
+                            <tr>
+                                <td><strong>AVINGTRANS (AVG) (D)</strong></td>
+                                <td><span class="score-badge score-high">35</span></td>
+                                <td><span class="score-badge score-high">11</span></td>
+                                <td><span class="score-badge score-low">0</span></td>
+                                <td><span class="score-badge score-high">19</span></td>
+                                <td><span class="score-badge score-low">4</span></td>
+                                <td><span class="score-badge score-low">3</span></td>
+                                <td><strong>72</strong></td>
+                                <td style="color: #DC143C; font-weight: 600;">17</td>
+                            </tr>
+                            <tr>
+                                <td><strong>TIME FINANCE (TIME)</strong></td>
+                                <td><span class="score-badge score-medium">31</span></td>
+                                <td><span class="score-badge score-high">11</span></td>
+                                <td><span class="score-badge score-high">12</span></td>
+                                <td><span class="score-badge score-medium">6</span></td>
+                                <td><span class="score-badge score-medium">6</span></td>
+                                <td><span class="score-badge score-medium">5</span></td>
+                                <td><strong>71</strong></td>
+                                <td>18</td>
+                            </tr>
+                            <tr>
+                                <td><strong>BEGBIES TRAYNOR (BEG) (D) *</strong></td>
+                                <td><span class="score-badge score-medium">31</span></td>
+                                <td><span class="score-badge score-high">11</span></td>
+                                <td><span class="score-badge score-low">0</span></td>
+                                <td><span class="score-badge score-high">19</span></td>
+                                <td><span class="score-badge score-medium">5</span></td>
+                                <td><span class="score-badge score-medium">5</span></td>
+                                <td><strong>71</strong></td>
+                                <td style="color: #DC143C; font-weight: 600;">19</td>
+                            </tr>
+                            <tr>
+                                <td><strong>FUNDING CIRCLE (FCH)</strong></td>
+                                <td><span class="score-badge score-high">37</span></td>
+                                <td><span class="score-badge score-medium">8</span></td>
+                                <td><span class="score-badge score-low">0</span></td>
+                                <td><span class="score-badge score-high">19</span></td>
+                                <td><span class="score-badge score-medium">5</span></td>
+                                <td><span class="score-badge score-low">2</span></td>
+                                <td><strong>71</strong></td>
+                                <td style="color: #DC143C; font-weight: 600;">20</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 Jack Reed. All rights reserved.</p>
+                <div class="social-icons">
+                    <a href="https://uk.linkedin.com/in/iamjackreed" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/jack.ross.reed/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com/jackrossreed" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

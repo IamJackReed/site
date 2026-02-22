@@ -1,0 +1,1035 @@
+/* ===================================
+   FIGMA-INSPIRED THEME
+   Modern Design Tool Aesthetic
+   =================================== */
+
+:root {
+    /* Figma Brand Colors */
+    --color-bg: #0d0d0d !important;
+    --color-bg-alt: #1a1a1a !important;
+    --color-bg-elevated: #2c2c2c !important;
+    --color-bg-card: #1e1e1e !important;
+    --color-text: #ffffff !important;
+    --color-text-light: #b4b4b4 !important;
+    --color-text-muted: #737373 !important;
+    --color-accent: #a259ff !important;
+    --color-accent-light: #bf7dff !important;
+    --color-accent-dark: #8b3dff !important;
+    --color-accent-secondary: #0acf83 !important;
+    --color-accent-secondary-light: #1ce89b !important;
+    --color-accent-tertiary: #ff7262 !important;
+    --color-accent-blue: #1abcfe !important;
+    --color-accent-yellow: #ffcd29 !important;
+    --color-border: #333333 !important;
+    --color-border-light: #404040 !important;
+    --color-disclaimer: #1a1410 !important;
+    --color-disclaimer-border: #d4a574 !important;
+    --color-success: #0acf83 !important;
+    --color-warning: #ffcd29 !important;
+    --color-error: #ff7262 !important;
+    
+    /* Typography - Figma uses Inter */
+    --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif !important;
+}
+
+/* Body Background with Figma-style Gradient */
+body {
+    background-color: var(--color-bg);
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(162, 89, 255, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(10, 207, 131, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(26, 188, 254, 0.04) 0%, transparent 50%);
+    background-attachment: fixed;
+}
+
+/* Navigation */
+.nav {
+    background-color: rgba(26, 26, 26, 0.85) !important;
+    border-bottom: 1px solid var(--color-border) !important;
+    backdrop-filter: blur(20px) saturate(180%);
+}
+
+.nav-logo {
+    font-weight: 700 !important;
+    color: #FE4B60 !important;
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    background-clip: unset;
+    letter-spacing: -0.02em;
+}
+
+.nav-logo:hover {
+    color: #ff6b7d !important;
+    filter: drop-shadow(0 0 20px rgba(254, 75, 96, 0.4));
+}
+
+.nav-menu a {
+    color: var(--color-text-light) !important;
+    font-weight: 500;
+    position: relative;
+    letter-spacing: -0.01em;
+}
+
+.nav-menu a::before {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #a259ff, #1abcfe);
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::before {
+    width: 100%;
+}
+
+.nav-menu a:hover {
+    color: var(--color-accent) !important;
+}
+
+/* Hero Section */
+.hero {
+    background-color: var(--color-bg-alt) !important;
+    border-bottom: 1px solid var(--color-border) !important;
+}
+
+.hero-title {
+    background: linear-gradient(135deg, #ffffff, #a259ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+.hero-subtitle {
+    color: var(--color-text-light) !important;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+.hero-tagline {
+    color: var(--color-text-light) !important;
+    font-weight: 400;
+}
+
+/* Cards - Figma Style */
+.pillar-card,
+.post-card {
+    background: var(--color-bg-card) !important;
+    border: 1px solid var(--color-border) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.pillar-card::before,
+.post-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #a259ff, #1abcfe, #0acf83);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.pillar-card:hover::before,
+.post-card:hover::before {
+    opacity: 1;
+}
+
+.pillar-card:hover,
+.post-card:hover {
+    border-color: var(--color-accent) !important;
+    box-shadow: 0 8px 24px rgba(162, 89, 255, 0.2), 0 0 40px rgba(162, 89, 255, 0.1);
+    transform: translateY(-4px);
+}
+
+.pillar-card h2,
+.post-title {
+    color: var(--color-text) !important;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.pillar-card:hover h2,
+.post-card:hover .post-title {
+    background: linear-gradient(135deg, #a259ff, #1abcfe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.pillar-card p,
+.post-excerpt {
+    color: var(--color-text-light) !important;
+    line-height: 1.6;
+}
+
+.pillar-card--accent {
+    border: 2px solid var(--color-accent) !important;
+    box-shadow: 0 0 30px rgba(162, 89, 255, 0.2);
+}
+
+/* About Preview */
+.about-preview {
+    background-color: var(--color-bg-alt) !important;
+    border-top: 1px solid var(--color-border) !important;
+}
+
+.about-preview h2 {
+    color: var(--color-text) !important;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.about-preview p {
+    color: var(--color-text-light) !important;
+}
+
+/* Content Pages */
+.content-page {
+    background-color: transparent !important;
+}
+
+.page-header {
+    border-bottom: 2px solid var(--color-border) !important;
+}
+
+.page-header h1 {
+    background: linear-gradient(135deg, #ffffff, #a259ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+.page-intro {
+    color: var(--color-text-light) !important;
+}
+
+/* Charts - Figma Color Palette */
+.chart-section {
+    background: transparent;
+}
+
+.bar-chart,
+.performance-chart {
+    background: var(--color-bg-card) !important;
+    border: 1px solid var(--color-border) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+.bar-chart-bar-container {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid var(--color-border) !important;
+    border-radius: 4px;
+}
+
+.bar-chart-bar {
+    background: linear-gradient(90deg, #a259ff 0%, #1abcfe 100%) !important;
+    border-radius: 4px;
+}
+
+.area-chart-container {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid var(--color-border) !important;
+    border-radius: 8px;
+}
+
+.area-chart text {
+    fill: var(--color-text-light) !important;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+.area-chart line {
+    stroke: var(--color-border) !important;
+}
+
+/* Performance Metrics */
+.performance-summary {
+    border-bottom: 1px solid var(--color-border) !important;
+}
+
+.metric-label {
+    color: var(--color-text-muted) !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.75rem;
+}
+
+.metric-value {
+    color: var(--color-text) !important;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.metric-value--positive {
+    color: var(--color-success) !important;
+}
+
+.metric-value--negative {
+    color: var(--color-error) !important;
+}
+
+/* Tables */
+.holdings-table {
+    background-color: var(--color-bg-card) !important;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.holdings-table thead {
+    background: linear-gradient(135deg, #a259ff, #1abcfe) !important;
+    color: var(--color-text) !important;
+}
+
+.holdings-table th {
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.holdings-table td {
+    border-bottom: 1px solid var(--color-border) !important;
+    color: var(--color-text-light) !important;
+}
+
+.holdings-table tbody tr:hover {
+    background-color: rgba(162, 89, 255, 0.08) !important;
+}
+
+/* Score Badges - Figma Colors */
+.score-high {
+    background-color: rgba(10, 207, 131, 0.15) !important;
+    color: var(--color-success) !important;
+    border: 1px solid var(--color-success);
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.score-medium {
+    background-color: rgba(255, 205, 41, 0.15) !important;
+    color: var(--color-warning) !important;
+    border: 1px solid var(--color-warning);
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.score-low {
+    background-color: rgba(255, 114, 98, 0.15) !important;
+    color: var(--color-error) !important;
+    border: 1px solid var(--color-error);
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+/* Disclaimer */
+.disclaimer-banner {
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.1), rgba(212, 165, 116, 0.05)) !important;
+    border: 2px solid var(--color-disclaimer-border) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+.disclaimer-banner h3,
+.disclaimer-banner p {
+    color: var(--color-text) !important;
+}
+
+.disclaimer-gate {
+    background-color: rgba(13, 13, 13, 0.98) !important;
+}
+
+.disclaimer-gate-content {
+    background: var(--color-bg-card) !important;
+    border: 2px solid var(--color-accent) !important;
+    box-shadow: 0 20px 60px rgba(162, 89, 255, 0.3);
+    border-radius: 12px;
+}
+
+.disclaimer-gate h2,
+.disclaimer-gate p {
+    color: var(--color-text) !important;
+}
+
+/* Buttons - Figma Style */
+.btn-primary {
+    background: linear-gradient(135deg, #a259ff, #8b3dff) !important;
+    color: var(--color-text) !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(162, 89, 255, 0.3);
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #bf7dff, #a259ff) !important;
+    box-shadow: 0 8px 24px rgba(162, 89, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background-color: transparent !important;
+    color: var(--color-accent) !important;
+    border: 2px solid var(--color-accent) !important;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.btn-outline:hover {
+    background-color: rgba(162, 89, 255, 0.1) !important;
+    border-color: var(--color-accent-light) !important;
+    box-shadow: 0 0 20px rgba(162, 89, 255, 0.3);
+}
+
+.btn-link,
+.post-link {
+    color: var(--color-accent) !important;
+    font-weight: 600;
+}
+
+.btn-link:hover,
+.post-link:hover {
+    color: var(--color-accent-light) !important;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--color-bg-alt) !important;
+    border-top: 1px solid var(--color-border) !important;
+}
+
+.footer p {
+    color: var(--color-text-muted) !important;
+}
+
+/* Article Pages */
+.article {
+    color: var(--color-text-light) !important;
+}
+
+.article-header {
+    border-bottom: 2px solid var(--color-border) !important;
+}
+
+.article-header h1 {
+    background: linear-gradient(135deg, #ffffff, #a259ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+.article-subtitle {
+    color: var(--color-text-light) !important;
+}
+
+.article-meta {
+    color: var(--color-text-muted) !important;
+}
+
+.article-section h2 {
+    color: var(--color-text) !important;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.back-link {
+    border-top: 1px solid var(--color-border) !important;
+}
+
+.back-link a {
+    color: var(--color-text-light) !important;
+}
+
+.back-link a:hover {
+    color: var(--color-accent) !important;
+}
+
+/* Custom Cursor - Figma Purple */
+.custom-cursor {
+    border-color: var(--color-accent) !important;
+    box-shadow: 0 0 20px rgba(162, 89, 255, 0.3);
+}
+
+.custom-cursor.cursor-hover {
+    border-color: var(--color-accent-light) !important;
+    box-shadow: 0 0 40px rgba(162, 89, 255, 0.5);
+}
+
+.custom-cursor-dot {
+    background-color: var(--color-accent) !important;
+    box-shadow: 0 0 10px rgba(162, 89, 255, 0.5);
+}
+
+/* Post Categories - Figma Colors */
+.post-category {
+    color: var(--color-accent) !important;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.post-category--investing {
+    color: var(--color-accent-yellow) !important;
+}
+
+/* Scrollbar Styling - Figma Purple */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #a259ff, #1abcfe);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #bf7dff, #1abcfe);
+}
+
+/* Selection - Figma Purple */
+::selection {
+    background-color: rgba(162, 89, 255, 0.3);
+    color: var(--color-text);
+}
+
+::-moz-selection {
+    background-color: rgba(162, 89, 255, 0.3);
+    color: var(--color-text);
+}
+
+/* Glow Effects - Figma Style */
+.pillar-card:hover,
+.post-card:hover,
+.btn-primary:hover {
+    animation: figma-pulse 2s infinite;
+}
+
+@keyframes figma-pulse {
+    0%, 100% {
+        box-shadow: 0 8px 24px rgba(162, 89, 255, 0.2), 0 0 40px rgba(162, 89, 255, 0.1);
+    }
+    50% {
+        box-shadow: 0 8px 24px rgba(162, 89, 255, 0.3), 0 0 60px rgba(162, 89, 255, 0.2);
+    }
+}
+
+/* Mobile Navigation */
+.nav-toggle span {
+    background-color: var(--color-text) !important;
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        background-color: rgba(26, 26, 26, 0.98) !important;
+        border-bottom: 1px solid var(--color-border) !important;
+        backdrop-filter: blur(20px) saturate(180%);
+    }
+    
+    .nav-menu li {
+        border-bottom: 1px solid var(--color-border) !important;
+    }
+}
+
+/* Additional Figma-inspired touches */
+h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.02em;
+}
+
+p {
+    letter-spacing: -0.01em;
+}
+
+/* Rounded corners everywhere */
+.pillar-card,
+.post-card,
+.bar-chart,
+.performance-chart,
+.holdings-table,
+.disclaimer-banner,
+.btn-primary,
+.btn-outline {
+    border-radius: 8px !important;
+}
+
+/* Smooth transitions */
+* {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* Body Background with Gradient */
+body {
+    background-color: var(--color-bg);
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(124, 58, 237, 0.05) 0%, transparent 50%);
+    background-attachment: fixed;
+}
+
+/* Navigation */
+.nav {
+    background-color: rgba(17, 17, 17, 0.8) !important;
+    border-bottom: 1px solid var(--color-border) !important;
+    backdrop-filter: blur(20px);
+}
+
+.nav-logo {
+    font-weight: 700 !important;
+    color: #FE4B60 !important;
+}
+
+.nav-logo:hover {
+    filter: drop-shadow(0 0 20px rgba(254, 75, 96, 0.4));
+}
+
+.nav-menu a {
+    color: var(--color-text-light) !important;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-menu a::before {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-accent-secondary));
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::before {
+    width: 100%;
+}
+
+.nav-menu a:hover {
+    color: var(--color-accent) !important;
+}
+
+/* Hero Section */
+.hero {
+    background-color: var(--color-bg-alt) !important;
+    border-bottom: 1px solid var(--color-border) !important;
+}
+
+.hero-title {
+    background: linear-gradient(135deg, var(--color-text), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    color: var(--color-text-light) !important;
+}
+
+.hero-tagline {
+    color: var(--color-text-light) !important;
+}
+
+/* Cards */
+.pillar-card,
+.post-card {
+    background: linear-gradient(135deg, var(--color-bg-card) 0%, var(--color-bg-elevated) 100%) !important;
+    border: 1px solid var(--color-border) !important;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+.pillar-card::before,
+.post-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-accent-secondary));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.pillar-card:hover::before,
+.post-card:hover::before {
+    opacity: 1;
+}
+
+.pillar-card:hover,
+.post-card:hover {
+    border-color: var(--color-accent) !important;
+    box-shadow: var(--shadow-lg), var(--glow);
+    transform: translateY(-8px);
+}
+
+.pillar-card h2,
+.post-title {
+    color: var(--color-text) !important;
+}
+
+.pillar-card:hover h2,
+.post-card:hover .post-title {
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.pillar-card p,
+.post-excerpt {
+    color: var(--color-text-light) !important;
+}
+
+.pillar-card--accent {
+    border: 2px solid var(--color-accent) !important;
+    box-shadow: var(--glow);
+}
+
+/* About Preview */
+.about-preview {
+    background-color: var(--color-bg-alt) !important;
+    border-top: 1px solid var(--color-border) !important;
+}
+
+.about-preview h2 {
+    color: var(--color-text) !important;
+}
+
+.about-preview p {
+    color: var(--color-text-light) !important;
+}
+
+/* Content Pages */
+.content-page {
+    background-color: transparent !important;
+}
+
+.page-header {
+    border-bottom: 2px solid var(--color-border) !important;
+}
+
+.page-header h1 {
+    background: linear-gradient(135deg, var(--color-text), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.page-intro {
+    color: var(--color-text-light) !important;
+}
+
+/* Charts */
+.chart-section {
+    background: transparent;
+}
+
+.bar-chart,
+.performance-chart {
+    background: linear-gradient(135deg, var(--color-bg-card) 0%, var(--color-bg-elevated) 100%) !important;
+    border: 1px solid var(--color-border) !important;
+    box-shadow: var(--shadow-md);
+}
+
+.bar-chart-bar-container {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid var(--color-border) !important;
+}
+
+.bar-chart-bar {
+    background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-secondary) 100%) !important;
+}
+
+.area-chart-container {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid var(--color-border) !important;
+}
+
+.area-chart text {
+    fill: var(--color-text-light) !important;
+}
+
+.area-chart line {
+    stroke: var(--color-border) !important;
+}
+
+/* Performance Metrics */
+.performance-summary {
+    border-bottom: 1px solid var(--color-border) !important;
+}
+
+.metric-label {
+    color: var(--color-text-muted) !important;
+}
+
+.metric-value {
+    color: var(--color-text) !important;
+}
+
+.metric-value--positive {
+    color: var(--color-success) !important;
+}
+
+.metric-value--negative {
+    color: var(--color-error) !important;
+}
+
+/* Tables */
+.holdings-table {
+    background-color: var(--color-bg-card) !important;
+    border: 1px solid var(--color-border);
+}
+
+.holdings-table thead {
+    background: linear-gradient(135deg, var(--color-accent-dark), var(--color-accent-secondary)) !important;
+    color: var(--color-text) !important;
+}
+
+.holdings-table td {
+    border-bottom: 1px solid var(--color-border) !important;
+    color: var(--color-text-light) !important;
+}
+
+.holdings-table tbody tr:hover {
+    background-color: rgba(0, 212, 255, 0.05) !important;
+}
+
+/* Score Badges */
+.score-high {
+    background-color: rgba(16, 185, 129, 0.2) !important;
+    color: var(--color-success) !important;
+    border: 1px solid var(--color-success);
+}
+
+.score-medium {
+    background-color: rgba(245, 158, 11, 0.2) !important;
+    color: var(--color-warning) !important;
+    border: 1px solid var(--color-warning);
+}
+
+.score-low {
+    background-color: rgba(239, 68, 68, 0.2) !important;
+    color: var(--color-error) !important;
+    border: 1px solid var(--color-error);
+}
+
+/* Disclaimer */
+.disclaimer-banner {
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.1), rgba(212, 165, 116, 0.05)) !important;
+    border: 2px solid var(--color-disclaimer-border) !important;
+    box-shadow: var(--shadow-md);
+}
+
+.disclaimer-banner h3,
+.disclaimer-banner p {
+    color: var(--color-text) !important;
+}
+
+.disclaimer-gate {
+    background-color: rgba(10, 10, 10, 0.98) !important;
+}
+
+.disclaimer-gate-content {
+    background: linear-gradient(135deg, var(--color-bg-card), var(--color-bg-elevated)) !important;
+    border: 2px solid var(--color-accent) !important;
+    box-shadow: var(--shadow-lg), var(--glow-strong);
+}
+
+.disclaimer-gate h2,
+.disclaimer-gate p {
+    color: var(--color-text) !important;
+}
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-secondary)) !important;
+    color: var(--color-text) !important;
+    border: none !important;
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+    box-shadow: var(--shadow-lg), var(--glow);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background-color: transparent !important;
+    color: var(--color-accent) !important;
+    border: 2px solid var(--color-accent) !important;
+}
+
+.btn-outline:hover {
+    background-color: rgba(0, 212, 255, 0.1) !important;
+    border-color: var(--color-accent-light) !important;
+    box-shadow: var(--glow);
+}
+
+.btn-link,
+.post-link {
+    color: var(--color-accent) !important;
+}
+
+.btn-link:hover,
+.post-link:hover {
+    color: var(--color-accent-light) !important;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--color-bg-alt) !important;
+    border-top: 1px solid var(--color-border) !important;
+}
+
+.footer p {
+    color: var(--color-text-muted) !important;
+}
+
+/* Article Pages */
+.article {
+    color: var(--color-text-light) !important;
+}
+
+.article-header {
+    border-bottom: 2px solid var(--color-border) !important;
+}
+
+.article-header h1 {
+    background: linear-gradient(135deg, var(--color-text), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.article-subtitle {
+    color: var(--color-text-light) !important;
+}
+
+.article-meta {
+    color: var(--color-text-muted) !important;
+}
+
+.article-section h2 {
+    color: var(--color-text) !important;
+}
+
+.back-link {
+    border-top: 1px solid var(--color-border) !important;
+}
+
+.back-link a {
+    color: var(--color-text-light) !important;
+}
+
+.back-link a:hover {
+    color: var(--color-accent) !important;
+}
+
+/* Custom Cursor */
+.custom-cursor {
+    border-color: var(--color-accent) !important;
+    box-shadow: var(--glow);
+}
+
+.custom-cursor.cursor-hover {
+    border-color: var(--color-accent-light) !important;
+    box-shadow: var(--glow-strong);
+}
+
+.custom-cursor-dot {
+    background-color: var(--color-accent) !important;
+    box-shadow: var(--glow);
+}
+
+/* Post Categories */
+.post-category {
+    color: var(--color-accent) !important;
+}
+
+.post-category--investing {
+    color: var(--color-warning) !important;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-secondary));
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, var(--color-accent-light), var(--color-accent-secondary-light));
+}
+
+/* Selection */
+::selection {
+    background-color: rgba(0, 212, 255, 0.3);
+    color: var(--color-text);
+}
+
+::-moz-selection {
+    background-color: rgba(0, 212, 255, 0.3);
+    color: var(--color-text);
+}
+
+/* Glow Effects on Hover */
+.pillar-card:hover,
+.post-card:hover,
+.btn-primary:hover {
+    animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: var(--shadow-lg), 0 0 20px rgba(0, 212, 255, 0.3);
+    }
+    50% {
+        box-shadow: var(--shadow-lg), 0 0 40px rgba(0, 212, 255, 0.5);
+    }
+}
+
+/* Mobile Navigation */
+.nav-toggle span {
+    background-color: var(--color-text) !important;
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        background-color: rgba(17, 17, 17, 0.98) !important;
+        border-bottom: 1px solid var(--color-border) !important;
+        backdrop-filter: blur(20px);
+    }
+    
+    .nav-menu li {
+        border-bottom: 1px solid var(--color-border) !important;
+    }
+}

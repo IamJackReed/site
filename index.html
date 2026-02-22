@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jack Reed | Scrum Master, Business Coach, Private Investor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dark-theme.css">
+    <link rel="stylesheet" href="light-theme.css">
+    <link rel="stylesheet" href="theme-toggle.css">
+    <style>
+        /* Hero Section Responsive Styles */
+        .hero--landing .content h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            font-weight: 800;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero--landing .content p {
+            font-size: 1.5rem;
+            line-height: 1.7;
+            max-width: 700px;
+            font-weight: 500;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Quote Section Responsive Styles */
+        .quote-section blockquote p:first-child {
+            font-size: 1.5rem;
+        }
+        
+        .quote-section blockquote p:last-child {
+            font-size: 1.125rem;
+        }
+        
+        /* About Preview Responsive Styles */
+        .about-preview h2 {
+            font-size: 2rem;
+        }
+        
+        .about-preview p {
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+        
+        /* Tablet */
+        @media (max-width: 1024px) {
+            .hero--landing {
+                height: 80vh !important;
+            }
+            
+            .hero--landing .content {
+                padding-top: 15vh !important;
+            }
+            
+            .hero--landing .content h1 {
+                font-size: 3.25rem;
+            }
+            
+            .hero--landing .content p {
+                font-size: 1.35rem;
+                max-width: 600px;
+            }
+            
+            .quote-section blockquote p:first-child {
+                font-size: 1.35rem;
+            }
+            
+            .quote-section blockquote p:last-child {
+                font-size: 1.05rem;
+            }
+            
+            .about-preview h2 {
+                font-size: 1.75rem;
+            }
+            
+            .about-preview p {
+                font-size: 1.05rem;
+            }
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero--landing {
+                height: 70vh !important;
+                background-position: 60% 30% !important;
+            }
+            
+            .hero--landing .content {
+                padding-top: 12vh !important;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            .hero--landing .content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero--landing .content p {
+                font-size: 1.125rem;
+                max-width: 100%;
+            }
+            
+            .quote-section blockquote p:first-child {
+                font-size: 1.2rem;
+            }
+            
+            .quote-section blockquote p:last-child {
+                font-size: 1rem;
+            }
+            
+            .about-preview h2 {
+                font-size: 1.5rem;
+            }
+            
+            .about-preview p {
+                font-size: 1rem;
+            }
+        }
+        
+        /* Small Mobile */
+        @media (max-width: 480px) {
+            .hero--landing {
+                height: 60vh !important;
+            }
+            
+            .hero--landing .content {
+                padding-top: 10vh !important;
+            }
+            
+            .hero--landing .content h1 {
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .hero--landing .content h1:last-of-type {
+                margin-bottom: 1.5rem !important;
+            }
+            
+            .hero--landing .content p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem !important;
+            }
+            
+            .quote-section blockquote p:first-child {
+                font-size: 1.1rem;
+            }
+            
+            .quote-section blockquote p:last-child {
+                font-size: 0.95rem;
+            }
+            
+            .about-preview h2 {
+                font-size: 1.35rem;
+            }
+            
+            .about-preview p {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <a href="/" class="nav-logo">Jack Reed</a>
+            <div class="nav-search">
+                <input type="text" id="search-input" placeholder="Search posts by hashtag..." aria-label="Search posts">
+                <button id="search-button" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="people-and-teams.html">People & Teams</a></li>
+                <li><a href="product.html">Product</a></li>
+                <li><a href="organisation-and-change.html">Organisation & Change</a></li>
+                <li><a href="market-diary.html">Market Diary</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main>
+        <section class="hero hero--landing" style="position: relative; background-image: url('https://res.cloudinary.com/dj6poiukp/image/upload/v1768168592/profile-header_mlpdkl.png'); background-position: 70% 30%; background-size: cover; background-repeat: no-repeat; width: 100%; height: 100vh;">
+            <div class="pixels"></div>
+            <div class="gradient"></div>
+            <div class="content" style="justify-content: flex-start; padding-top: 20vh; text-align: left;">
+                <h1>Scrum Master</h1>
+                <h1>Business Coach</h1>
+                <h1 style="margin-bottom: 2rem;">Private Investor</h1>
+                <p style="margin-bottom: 2rem;">Based in London and working at Legal & General. I use this site to share my thoughts on teams, products, organisations, and financial markets.</p>
+            </div>
+        </section>
+
+        <!-- Quote Section -->
+        <section class="quote-section" style="padding: var(--spacing-xxl) 0; background-color: var(--color-bg-alt); border-bottom: 1px solid var(--color-border);">
+            <div class="container">
+                <blockquote style="max-width: 800px; margin: 0 auto; text-align: center;">
+                    <p style="font-size: 1.5rem; font-style: italic; line-height: 1.6; margin-bottom: var(--spacing-lg); color: var(--color-text);">"I like figuring out how value is created - inside organisations and in the markets that price them."</p>
+                    <p style="font-size: 1.125rem; line-height: 1.7; color: var(--color-text-light);">I partner with organisations to connect <strong>strategy</strong>, <strong>product</strong>, and <strong>execution</strong> - and I invest in businesses that do the same internally. I'm interested in how <strong>value is created</strong>: how <strong>teams work together effectively</strong>, how <strong>products create value</strong>, how <strong>systems shape behaviour</strong>, and how <strong>markets eventually price the results</strong>.</p>
+                </blockquote>
+            </div>
+        </section>
+
+        </section>
+
+        <!-- Core Pillars -->
+        <section class="pillars">
+            <div class="container">
+                <div style="margin-bottom: var(--spacing-xl);">
+                    <h2 style="font-size: 2rem; margin-bottom: var(--spacing-md);">What I Write About</h2>
+                    <p style="font-size: 1.125rem; line-height: 1.7; color: var(--color-text-light); max-width: 900px;">On this site I write about teams, products, organisations, and financial markets. I explore how incentives and systems shape behaviour in organisations, and occasionally share experiments, mistakes, and lessons. Some of that investment research will appear here — not as financial advice or trade alerts, but as a record of how I'm trying to make sense of businesses and markets.</p>
+                </div>
+                <div class="pillar-grid">
+                    <a href="people-and-teams.html" class="pillar-card">
+                        <h2>People & Teams</h2>
+                        <p>How teams collaborate, make decisions, and create sustainable ways of working.</p>
+                        <span class="btn-link">Explore →</span>
+                        <img src="https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559821647/theme6_qeeojf.jpg" alt="People & Teams" class="card-image">
+                    </a>
+
+                    <a href="product.html" class="pillar-card">
+                        <h2>Product</h2>
+                        <p>How products create value, from discovery to delivery and beyond.</p>
+                        <span class="btn-link">Explore →</span>
+                        <img src="https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559821648/theme8_knvabs.jpg" alt="Product" class="card-image">
+                    </a>
+
+                    <a href="organisation-and-change.html" class="pillar-card">
+                        <h2>Organisation & Change</h2>
+                        <p>How systems thinking shapes operating models, org design, and transformation.</p>
+                        <span class="btn-link">Explore →</span>
+                        <img src="https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559821647/theme2_ylcxxz.jpg" alt="Organisation & Change" class="card-image">
+                    </a>
+
+                    <a href="market-diary.html" class="pillar-card">
+                        <h2>Market Diary</h2>
+                        <p>Personal notes on markets, companies, and investment thinking.</p>
+                        <span class="btn-link">Read →</span>
+                        <img src="https://res.cloudinary.com/dj6poiukp/image/upload/v1767400374/peopleandteams_sqkbye.png" alt="Market Diary" class="card-image">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Preview -->
+        <section class="about-preview">
+            <div class="container">
+                <h2>About Me</h2>
+                <p>I'm a Scrum Master, Business Coach, and Private Investor based in the UK. I work with teams and organisations to improve how they make decisions, deliver value, and adapt to change.</p>
+                <p>My approach draws from Agile practices, systems thinking, and a deep curiosity about how markets process information.</p>
+                <a href="about.html" class="btn-secondary">Read more about my work →</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 Jack Reed. All rights reserved.</p>
+                <div class="social-icons">
+                    <a href="https://uk.linkedin.com/in/iamjackreed" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/jack.ross.reed/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com/jackrossreed" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="search.js"></script>
+</body>
+</html>

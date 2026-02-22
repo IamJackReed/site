@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Diary | Jack Reed</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dark-theme.css">
+    <link rel="stylesheet" href="light-theme.css">
+    <link rel="stylesheet" href="theme-toggle.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <style>
+        /* Responsive container with proper spacing */
+        .content-page .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 2rem;
+        }
+        
+        /* Chart sections with responsive spacing */
+        .chart-section {
+            margin-bottom: 3rem;
+            padding: 0 1rem;
+        }
+        
+        .chart-section h2 {
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Chart containers with proper padding */
+        .chart-container {
+            background: var(--color-bg-alt);
+            border: 1px solid var(--color-border);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 0 auto;
+        }
+        
+        .portfolio-summary { 
+            margin-bottom: 3rem;
+            padding: 0 1rem;
+        }
+        
+        .summary-cards { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 1.5rem; 
+            margin-bottom: 2rem; 
+        }
+        
+        .summary-card { 
+            background: var(--color-bg-alt); 
+            border: 1px solid var(--color-border); 
+            padding: 1.5rem; 
+            border-radius: 8px; 
+        }
+        
+        .summary-label { 
+            font-size: 0.875rem; 
+            color: var(--color-text-light); 
+            text-transform: uppercase; 
+            letter-spacing: 0.05em; 
+            margin-bottom: 0.5rem; 
+        }
+        
+        .summary-value { 
+            font-size: 2rem; 
+            font-weight: 700; 
+            color: var(--color-text); 
+        }
+        
+        .summary-value--gain { color: #4BB78F; }
+        .summary-value--loss { color: #FE4B60; }
+        
+        .holdings-section {
+            padding: 0 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .holdings-grid { 
+            display: grid; 
+            gap: 1rem; 
+        }
+        
+        .holding-card { 
+            background: var(--color-bg-alt); 
+            border: 1px solid var(--color-border); 
+            padding: 1.5rem; 
+            border-radius: 8px; 
+            display: grid; 
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr 0.8fr 0.8fr; 
+            gap: 1rem; 
+            align-items: center; 
+            transition: transform 0.2s ease; 
+        }
+        
+        .holding-card:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+        }
+        
+        .holding-name { 
+            font-weight: 600; 
+            font-size: 1rem; 
+        }
+        
+        .holding-stat { text-align: right; }
+        
+        .holding-stat-label { 
+            font-size: 0.75rem; 
+            color: var(--color-text-light); 
+            text-transform: uppercase; 
+            letter-spacing: 0.05em; 
+            display: block; 
+            margin-bottom: 0.25rem; 
+        }
+        
+        .holding-stat-value { 
+            font-size: 1rem; 
+            font-weight: 600; 
+        }
+        
+        .positive { color: #4BB78F; }
+        .negative { color: #FE4B60; }
+        
+        .section-divider { 
+            margin: 3rem 1rem; 
+            padding: 1.5rem; 
+            background: var(--color-bg-elevated); 
+            border-left: 4px solid var(--color-accent); 
+            border-radius: 4px; 
+        }
+        
+        .section-divider h3 { 
+            margin: 0; 
+            font-size: 1.25rem; 
+        }
+        
+        /* Tablet responsive */
+        @media (max-width: 1024px) {
+            .content-page .container {
+                padding: 1.5rem 1.5rem;
+            }
+            
+            .chart-section,
+            .portfolio-summary,
+            .holdings-section {
+                padding: 0 0.5rem;
+            }
+            
+            .chart-container {
+                padding: 1.5rem;
+            }
+        }
+        
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .content-page .container {
+                padding: 1rem 1rem;
+            }
+            
+            .chart-section,
+            .portfolio-summary,
+            .holdings-section {
+                padding: 0;
+            }
+            
+            .chart-container {
+                padding: 1rem;
+            }
+            
+            .holding-card { 
+                grid-template-columns: 1fr; 
+                gap: 0.75rem; 
+            }
+            
+            .holding-stat { 
+                text-align: left; 
+                display: flex; 
+                justify-content: space-between; 
+                align-items: center; 
+            }
+            
+            .holding-stat-label { margin-bottom: 0; }
+            
+            .chart-section > div[style*="grid-template-columns"] { 
+                grid-template-columns: 1fr !important; 
+            }
+            
+            .section-divider {
+                margin: 2rem 0;
+            }
+        }
+        
+        /* Small mobile */
+        @media (max-width: 480px) {
+            .content-page .container {
+                padding: 0.75rem 0.75rem;
+            }
+            
+            .summary-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .summary-value {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+            <a href="/" class="nav-logo">Jack Reed</a>
+            <div class="nav-search">
+                <input type="text" id="search-input" placeholder="Search posts by hashtag..." aria-label="Search posts">
+                <button id="search-button" aria-label="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg></button>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="people-and-teams.html">People & Teams</a></li>
+                <li><a href="product.html">Product</a></li>
+                <li><a href="organisation-and-change.html">Organisation & Change</a></li>
+                <li><a href="market-diary.html">Market Diary</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="content-page">
+        <div class="container">
+            <div class="disclaimer-banner">
+                <h3>⚠️ Disclaimer</h3>
+                <p><strong>Nothing on this site is financial advice.</strong> These are my personal notes and opinions, shared for educational and informational purposes only. They do not constitute investment advice, recommendation, or invitation to buy or sell any security. Please do your own research and, if needed, speak to a regulated financial adviser.</p>
+            </div>
+            <header class="page-header">
+                <h1>Market Diary</h1>
+                <p class="page-intro">This is my personal market diary—a place where I share my thinking about markets, companies, and capital allocation.</p>
+            </header>
+            <!-- Investment Posts -->
+            <section class="posts-section">
+                <h2>Investment Notes</h2>
+                <div class="posts-grid">
+                    <!-- Placeholder post cards - replace with real content -->
+                    <article class="post-card">
+                        <span class="post-category post-category--investing">Market Diary</span>
+                        <h2 class="post-title">Why I'm Watching the Energy Transition</h2>
+                        <p class="post-excerpt">Notes on capital flows, policy tailwinds, and where the opportunities might be.</p>
+                        <div class="post-meta">
+                            <time datetime="2026-01-20">20 January 2026</time>
+                            <a href="posts/energy-transition-notes.html" class="post-link">Read more →</a>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <span class="post-category post-category--investing">Market Diary</span>
+                        <h2 class="post-title">Thesis: Example Tech Co.</h2>
+                        <p class="post-excerpt">A deep dive into the business model, competitive position, and why I think it's mispriced.</p>
+                        <div class="post-meta">
+                            <time datetime="2026-01-14">14 January 2026</time>
+                            <a href="posts/thesis-example-tech.html" class="post-link">Read more →</a>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <span class="post-category post-category--investing">Market Diary</span>
+                        <h2 class="post-title">Market Notes: January 2026</h2>
+                        <p class="post-excerpt">Observations on market sentiment, sector rotation, and what I'm paying attention to.</p>
+                        <div class="post-meta">
+                            <time datetime="2026-01-07">7 January 2026</time>
+                            <a href="posts/market-notes-jan-2026.html" class="post-link">Read more →</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+            <!-- Overall Fund Performance -->
+            <section class="chart-section">
+                <h2>Overall Fund Performance</h2>
+                <div class="chart-container">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                        <div>
+                            <div style="font-size: 0.875rem; color: var(--color-text-light); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Total Return</div>
+                            <div style="font-size: 2rem; font-weight: 700; color: #4BB78F;">+12.61%</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.875rem; color: var(--color-text-light); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">YTD Return</div>
+                            <div style="font-size: 2rem; font-weight: 700; color: #4BB78F;">+8.45%</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.875rem; color: var(--color-text-light); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Best Month</div>
+                            <div style="font-size: 2rem; font-weight: 700; color: #4BB78F;">+5.2%</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.875rem; color: var(--color-text-light); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Worst Month</div>
+                            <div style="font-size: 2rem; font-weight: 700; color: #FE4B60;">-2.8%</div>
+                        </div>
+                    </div>
+                    <canvas id="overall-performance-chart" style="max-height: 350px;"></canvas>
+                </div>
+            </section>
+            
+            <section class="portfolio-summary">
+                <div class="summary-cards">
+                    <div class="summary-card"><div class="summary-label">Total Portfolio Value</div><div class="summary-value" id="total-value">£0.00</div></div>
+                    <div class="summary-card"><div class="summary-label">Total Investment</div><div class="summary-value" id="total-cost">£0.00</div></div>
+                    <div class="summary-card"><div class="summary-label">Total Profit/Loss</div><div class="summary-value" id="total-pl">£0.00</div></div>
+                    <div class="summary-card"><div class="summary-label">Return (%)</div><div class="summary-value" id="total-return">0.00%</div></div>
+                </div>
+            </section>
+            <section class="chart-section">
+                <h2>Asset Allocation</h2>
+                <div class="bar-chart" id="asset-allocation"></div>
+            </section>
+            <section class="chart-section">
+                <h2>Portfolio Composition</h2>
+                <div class="chart-container">
+                    <canvas id="portfolio-pie-chart" style="max-height: 400px;"></canvas>
+                </div>
+            </section>
+            <section class="chart-section">
+                <h2>Top Performers & Biggest Losers</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+                    <div class="chart-container">
+                        <h3 style="color: #4BB78F; margin-bottom: 1rem;">🚀 Top 5 Performers</h3>
+                        <div id="top-performers"></div>
+                    </div>
+                    <div class="chart-container">
+                        <h3 style="color: #FE4B60; margin-bottom: 1rem;">📉 Biggest Losers</h3>
+                        <div id="top-losers"></div>
+                    </div>
+                </div>
+            </section>
+            <section class="chart-section">
+                <h2>Performance Distribution</h2>
+                <div class="chart-container">
+                    <canvas id="performance-chart" style="max-height: 300px;"></canvas>
+                </div>
+            </section>
+            <section class="chart-section">
+                <h2>Top 10 Holdings by Value</h2>
+                <div class="chart-container">
+                    <canvas id="holdings-bar-chart" style="max-height: 400px;"></canvas>
+                </div>
+            </section>
+            <section class="holdings-section">
+                <h2>Stock Holdings</h2>
+                <div class="chart-container" style="margin-bottom: 1.5rem;">
+                    <h3 style="margin-top: 0; margin-bottom: 1rem; font-size: 1.125rem;">Stocks Performance (Last 6 Months)</h3>
+                    <canvas id="stocks-performance-chart" style="max-height: 250px;"></canvas>
+                </div>
+                <div class="holdings-grid" id="stocks-grid"></div>
+            </section>
+            <div class="section-divider"><h3>Investment Funds</h3></div>
+            <section class="holdings-section">
+                <div class="chart-container" style="margin-bottom: 1.5rem;">
+                    <h3 style="margin-top: 0; margin-bottom: 1rem; font-size: 1.125rem;">Funds Performance (Last 6 Months)</h3>
+                    <canvas id="funds-performance-chart" style="max-height: 250px;"></canvas>
+                </div>
+                <div class="holdings-grid" id="funds-grid"></div>
+            </section>
+            
+            <div class="section-divider"><h3>Commodities</h3></div>
+            <section class="holdings-section">
+                <div class="chart-container" style="margin-bottom: 1.5rem;">
+                    <h3 style="margin-top: 0; margin-bottom: 1rem; font-size: 1.125rem;">Commodities Performance (Since Jul 2018)</h3>
+                    <canvas id="commodities-performance-chart" style="max-height: 250px;"></canvas>
+                </div>
+                <div class="holdings-grid" id="commodities-grid"></div>
+            </section>
+            
+            <div class="section-divider"><h3>Foreign Exchange (FX)</h3></div>
+            <section class="holdings-section">
+                <div class="chart-container" style="margin-bottom: 1.5rem;">
+                    <h3 style="margin-top: 0; margin-bottom: 1rem; font-size: 1.125rem;">FX Performance (Since Jul 2018)</h3>
+                    <canvas id="fx-performance-chart" style="max-height: 250px;"></canvas>
+                </div>
+                <div class="holdings-grid" id="fx-grid"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 Jack Reed. All rights reserved.</p>
+                <div class="social-icons">
+                    <a href="https://uk.linkedin.com/in/iamjackreed" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                    <a href="https://www.instagram.com/jack.ross.reed/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                    <a href="https://twitter.com/jackrossreed" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+    <script src="search.js"></script>
+    <script>
+// Sample portfolio data - replace with your actual data
+const portfolioData = {
+    totalValue: 61148.11,
+    totalCost: 54300,
+    totalPL: 6848.11,
+    totalReturn: 12.61,
+    allocation: { cash: 1000, stocks: 44655.73, funds: 16492.38, commodities: 2650.50, fx: 4500 },
+    holdings: [
+        {name: "JOURNEO PLC", value: 5568, cost: 4000, pl: 39.2, holding: 8.96, position: "Long"},
+        {name: "ANPARIO PLC", value: 5184.5, cost: 4000, pl: 29.61, holding: 8.34, position: "Long"},
+        {name: "GlX Uranium UCITS ETF", value: 6493.68, cost: 5300, pl: 22.52, holding: 10.45, position: "Long"},
+        {name: "Vanguard Life Strategy 80%", value: 9998.7, cost: 9000, pl: 11.10, holding: 16.09, position: "Long"},
+        {name: "RAMSDENS HOLDINGS PLC", value: 3493.2, cost: 3000, pl: 16.44, holding: 5.62, position: "Long"},
+        {name: "CONCURRENT TECHNOLOGIES", value: 2214, cost: 1500, pl: 47.6, holding: 3.56, position: "Long"},
+        {name: "QUARTIX TECHNOLOGIES", value: 3003.25, cost: 2500, pl: 20.13, holding: 4.83, position: "Long"},
+        {name: "PERSONAL GROUP HOLDINGS", value: 3168.8, cost: 3000, pl: 5.63, holding: 5.10, position: "Long"},
+        {name: "CAKE BOX HOLDINGS PLC", value: 2050, cost: 1500, pl: 36.67, holding: 3.30, position: "Long"},
+        {name: "Beeks Financial Cloud", value: 2182.45, cost: 1500, pl: 45.50, holding: 3.51, position: "Long"},
+        {name: "SYNECTICS PLC", value: 3016, cost: 3000, pl: 0.53, holding: 4.85, position: "Long"},
+        {name: "HARGREAVES SERVICES", value: 2063.47, cost: 2000, pl: 3.17, holding: 3.32, position: "Long"},
+        {name: "ONE HEALTH GROUP PLC", value: 2434.75, cost: 2000, pl: 21.74, holding: 3.92, position: "Long"},
+        {name: "AdvancedAdvT Limited", value: 1870, cost: 1500, pl: 24.67, holding: 3.01, position: "Long"},
+        {name: "M&C SAATCHI PLC", value: 1475, cost: 1500, pl: -1.67, holding: 2.37, position: "Long"},
+        {name: "DSW CAPITAL PLC", value: 1100, cost: 1000, pl: 10.0, holding: 1.77, position: "Long"},
+        {name: "Ashtead Technology", value: 1083, cost: 1000, pl: 8.3, holding: 1.74, position: "Long"},
+        {name: "TIME FINANCE PLC", value: 1074, cost: 1000, pl: 7.4, holding: 1.73, position: "Long"},
+        {name: "BRAVE BISON GROUP PLC", value: 802.51, cost: 1000, pl: -19.75, holding: 1.29, position: "Long"},
+        {name: "GAMING REALMS PLC", value: 468.43, cost: 500, pl: -6.31, holding: 0.75, position: "Long"},
+        {name: "WARPAINT LONDON PLC", value: 2074.38, cost: 3000, pl: -30.85, holding: 3.34, position: "Short"},
+        {name: "AMCOMRI GROUP PLC", value: 330, cost: 1500, pl: -78.0, holding: 0.53, position: "Short"}
+    ],
+    commodities: [
+        {name: "Gold (XAUUSD)", pl: 2.73, winRate: 68.5, equity: 2650}
+    ],
+    fx: [
+        {name: "USD/JPY", pl: 1.11, winRate: 65.5, equity: 15000},
+        {name: "EUR/USD", pl: 3.13, winRate: 58.2, equity: 12000},
+        {name: "GBP/USD", pl: 0.56, winRate: 62.8, equity: 18000}
+    ]
+};
+
+// Display summary
+document.getElementById('total-value').textContent = `£${portfolioData.totalValue.toLocaleString('en-GB', {minimumFractionDigits: 2})}`;
+document.getElementById('total-cost').textContent = `£${portfolioData.totalCost.toLocaleString('en-GB', {minimumFractionDigits: 2})}`;
+const plEl = document.getElementById('total-pl');
+plEl.textContent = `£${portfolioData.totalPL.toLocaleString('en-GB', {minimumFractionDigits: 2})}`;
+plEl.className = portfolioData.totalPL >= 0 ? 'summary-value summary-value--gain' : 'summary-value summary-value--loss';
+const retEl = document.getElementById('total-return');
+retEl.textContent = `${portfolioData.totalReturn.toFixed(2)}%`;
+retEl.className = portfolioData.totalReturn >= 0 ? 'summary-value summary-value--gain' : 'summary-value summary-value--loss';
+
+// Asset allocation
+const total = portfolioData.allocation.cash + portfolioData.allocation.stocks + portfolioData.allocation.funds + portfolioData.allocation.commodities + portfolioData.allocation.fx;
+document.getElementById('asset-allocation').innerHTML = `
+    <div class="bar-chart-item"><div class="bar-chart-label">Stocks</div><div class="bar-chart-bar-container"><div class="bar-chart-bar" style="width: ${(portfolioData.allocation.stocks/total*100).toFixed(1)}%;" data-value="${(portfolioData.allocation.stocks/total*100).toFixed(1)}%"></div></div></div>
+    <div class="bar-chart-item"><div class="bar-chart-label">Funds</div><div class="bar-chart-bar-container"><div class="bar-chart-bar" style="width: ${(portfolioData.allocation.funds/total*100).toFixed(1)}%;" data-value="${(portfolioData.allocation.funds/total*100).toFixed(1)}%"></div></div></div>
+    <div class="bar-chart-item"><div class="bar-chart-label">Commodities</div><div class="bar-chart-bar-container"><div class="bar-chart-bar" style="width: ${(portfolioData.allocation.commodities/total*100).toFixed(1)}%;" data-value="${(portfolioData.allocation.commodities/total*100).toFixed(1)}%"></div></div></div>
+    <div class="bar-chart-item"><div class="bar-chart-label">FX</div><div class="bar-chart-bar-container"><div class="bar-chart-bar" style="width: ${(portfolioData.allocation.fx/total*100).toFixed(1)}%;" data-value="${(portfolioData.allocation.fx/total*100).toFixed(1)}%"></div></div></div>
+    <div class="bar-chart-item"><div class="bar-chart-label">Cash</div><div class="bar-chart-bar-container"><div class="bar-chart-bar" style="width: ${(portfolioData.allocation.cash/total*100).toFixed(1)}%;" data-value="${(portfolioData.allocation.cash/total*100).toFixed(1)}%"></div></div></div>
+`;
+
+// Pie chart
+new Chart(document.getElementById('portfolio-pie-chart'), {
+    type: 'doughnut',
+    data: {
+        labels: ['Stocks', 'Funds', 'Commodities', 'FX', 'Cash'],
+        datasets: [{
+            data: [portfolioData.allocation.stocks, portfolioData.allocation.funds, portfolioData.allocation.commodities, portfolioData.allocation.fx, portfolioData.allocation.cash],
+            backgroundColor: ['#4BB78F', '#007A8B', '#F0A946', '#FE4B60', '#a0b4c8'],
+            borderColor: '#002847',
+            borderWidth: 2
+        }]
+    },
+    options: {
+        responsive: true,
+        layout: {
+            padding: {
+                left: 10,
+                right: 10,
+                top: 10,
+                bottom: 10
+            }
+        },
+        plugins: {
+            legend: { position: 'bottom', labels: { color: '#a0b4c8', font: { size: 14 } } },
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        const value = context.parsed;
+                        const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                        const percentage = ((value / total) * 100).toFixed(1);
+                        return `${context.label}: £${value.toLocaleString('en-GB')} (${percentage}%)`;
+                    }
+                }
+            }
+        }
+    }
+});
+
+// Top performers & losers
+const sorted = [...portfolioData.holdings].sort((a, b) => b.pl - a.pl);
+document.getElementById('top-performers').innerHTML = sorted.slice(0, 5).map(s => `
+    <div style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--color-border);">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+            <span style="font-weight: 600;">${s.name}</span>
+            <span style="color: #4BB78F; font-weight: 700;">+${s.pl.toFixed(2)}%</span>
+        </div>
+        <div style="font-size: 0.875rem; color: var(--color-text-light);">£${s.value.toLocaleString('en-GB')} value</div>
+    </div>
+`).join('');
+
+document.getElementById('top-losers').innerHTML = sorted.slice(-5).reverse().map(s => `
+    <div style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--color-border);">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+            <span style="font-weight: 600;">${s.name}</span>
+            <span style="color: #FE4B60; font-weight: 700;">${s.pl.toFixed(2)}%</span>
+        </div>
+        <div style="font-size: 0.875rem; color: var(--color-text-light);">£${s.value.toLocaleString('en-GB')} value</div>
+    </div>
+`).join('');
+
+// Performance distribution
+const buckets = {'Loss > 20%': 0, 'Loss 10-20%': 0, 'Loss 0-10%': 0, 'Gain 0-10%': 0, 'Gain 10-20%': 0, 'Gain 20-30%': 0, 'Gain > 30%': 0};
+portfolioData.holdings.forEach(s => {
+    if (s.pl < -20) buckets['Loss > 20%']++;
+    else if (s.pl < -10) buckets['Loss 10-20%']++;
+    else if (s.pl < 0) buckets['Loss 0-10%']++;
+    else if (s.pl < 10) buckets['Gain 0-10%']++;
+    else if (s.pl < 20) buckets['Gain 10-20%']++;
+    else if (s.pl < 30) buckets['Gain 20-30%']++;
+    else buckets['Gain > 30%']++;
+});
+
+new Chart(document.getElementById('performance-chart'), {
+    type: 'bar',
+    data: {
+        labels: Object.keys(buckets),
+        datasets: [{
+            label: 'Number of Holdings',
+            data: Object.values(buckets),
+            backgroundColor: ['#c62828', '#e65100', '#f57c00', '#7cb342', '#66bb6a', '#4caf50', '#2e7d32'],
+            borderColor: '#002847',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        layout: {
+            padding: {
+                left: 10,
+                right: 10,
+                top: 10,
+                bottom: 10
+            }
+        },
+        plugins: { legend: { display: false } },
+        scales: {
+            y: { beginAtZero: true, ticks: { color: '#a0b4c8', stepSize: 1 }, grid: { color: '#003d5c' } },
+            x: { ticks: { color: '#a0b4c8', font: { size: 11 } }, grid: { display: false } }
+        }
+    }
+});
+
+// Top 10 holdings
+const top10 = [...portfolioData.holdings].sort((a, b) => b.value - a.value).slice(0, 10);
+new Chart(document.getElementById('holdings-bar-chart'), {
+    type: 'bar',
+    data: {
+        labels: top10.map(h => h.name.length > 25 ? h.name.substring(0, 25) + '...' : h.name),
+        datasets: [{
+            label: 'Value (£)',
+            data: top10.map(h => h.value),
+            backgroundColor: top10.map(h => h.pl >= 0 ? '#4BB78F' : '#FE4B60'),
+            borderColor: '#002847',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        indexAxis: 'y',
+        responsive: true,
+        layout: {
+            padding: {
+                left: 10,
+                right: 10,
+                top: 10,
+                bottom: 10
+            }
+        },
+        plugins: {
+            legend: { display: false },
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        const holding = top10[context.dataIndex];
+                        return [`Value: £${context.parsed.x.toLocaleString('en-GB')}`, `P/L: ${holding.pl >= 0 ? '+' : ''}${holding.pl.toFixed(2)}%`];
+                    }
+                }
+            }
+        },
+        scales: {
+            x: { ticks: { color: '#a0b4c8', callback: function(value) { return '£' + (value / 1000).toFixed(1) + 'k'; } }, grid: { color: '#003d5c' } },
+            y: { ticks: { color: '#a0b4c8', font: { size: 11 } }, grid: { display: false } }
+        }
+    }
+});
+
+// Display holdings
+document.getElementById('stocks-grid').innerHTML = portfolioData.holdings.slice(0, 20).map(h => `
+    <div class="holding-card">
+        <div class="holding-name">${h.name}</div>
+        <div class="holding-stat"><span class="holding-stat-label">Value</span><span class="holding-stat-value">£${h.value.toLocaleString('en-GB')}</span></div>
+        <div class="holding-stat"><span class="holding-stat-label">Cost</span><span class="holding-stat-value">£${h.cost.toLocaleString('en-GB')}</span></div>
+        <div class="holding-stat"><span class="holding-stat-label">P/L</span><span class="holding-stat-value ${h.pl >= 0 ? 'positive' : 'negative'}">${h.pl >= 0 ? '+' : ''}${h.pl.toFixed(2)}%</span></div>
+        <div class="holding-stat"><span class="holding-stat-label">Holding</span><span class="holding-stat-value">${h.holding.toFixed(2)}%</span></div>
+        <div class="holding-stat"><span class="holding-stat-label">Long</span><span class="holding-stat-value">${h.position === 'Long' ? '✓' : ''}</span></div>
+        <div class="holding-stat"><span class="holding-stat-label">Short</span><span class="holding-stat-value">${h.position === 'Short' ? '✓' : ''}</span></div>
+    </div>
+`).join('');
+
+document.getElementById('funds-grid').innerHTML = portfolioData.holdings.slice(20).map(h => `
+    <div class="holding-card">
+        <div class="holding-name">${h.name}</div>
+        <div class="holding-stat"><span class="holding-stat-label">Value</span><span class="holding-stat-value">£${h.value.toLocaleString('en-GB')}</span></div>
+        <div class="holding-stat"><span class="holding-stat-label">Cost</span><span class="holding-stat-value">£${h.cost.toLocaleString('en-GB')}</span></div>
+        <div class="holding-stat"><span class="holding-stat-label">P/L</span><span class="holding-stat-value ${h.pl >= 0 ? 'positive' : 'negative'}">${h.pl >= 0 ? '+' : ''}${h.pl.toFixed(2)}%</span></div>
+        <div class="holding-stat"><span class="holding-stat-label">Holding</span><span class="holding-stat-value">${h.holding.toFixed(2)}%</span></div>
+        <div class="holding-stat"><span class="holding-stat-label">Long</span><span class="holding-stat-value">${h.position === 'Long' ? '✓' : ''}</span></div>
+        <div class="holding-stat"><span class="holding-stat-label">Short</span><span class="holding-stat-value">${h.position === 'Short' ? '✓' : ''}</span></div>
+    </div>
+`).join('');
+
+// Display commodities
+document.getElementById('commodities-grid').innerHTML = portfolioData.commodities.map(c => `
+    <div class="holding-card" style="grid-template-columns: 2fr 1fr 1fr 1fr;">
+        <div class="holding-name">${c.name}</div>
+        <div class="holding-stat"><span class="holding-stat-label">P/L</span><span class="holding-stat-value ${c.pl >= 0 ? 'positive' : 'negative'}">${c.pl >= 0 ? '+' : ''}${c.pl.toFixed(2)}%</span></div>
+        <div class="holding-stat"><span class="holding-stat-label">Trade Win %</span><span class="holding-stat-value">${c.winRate.toFixed(1)}%</span></div>
+        <div class="holding-stat"><span class="holding-stat-label">Equity</span><span class="holding-stat-value">£${c.equity.toLocaleString('en-GB')}</span></div>
+    </div>
+`).join('');
+
+// Display FX
+document.getElementById('fx-grid').innerHTML = portfolioData.fx.map(f => `
+    <div class="holding-card" style="grid-template-columns: 2fr 1fr 1fr 1fr;">
+        <div class="holding-name">${f.name}</div>
+        <div class="holding-stat"><span class="holding-stat-label">P/L</span><span class="holding-stat-value ${f.pl >= 0 ? 'positive' : 'negative'}">${f.pl >= 0 ? '+' : ''}${f.pl.toFixed(2)}%</span></div>
+        <div class="holding-stat"><span class="holding-stat-label">Trade Win %</span><span class="holding-stat-value">${f.winRate.toFixed(1)}%</span></div>
+        <div class="holding-stat"><span class="holding-stat-label">Equity</span><span class="holding-stat-value">£${f.equity.toLocaleString('en-GB')}</span></div>
+    </div>
+`).join('');
+
+// Create performance charts
+createPerformanceCharts();
+
+function createPerformanceCharts() {
+    const months = ['Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan'];
+    
+    // Overall Fund Performance Chart
+    new Chart(document.getElementById('overall-performance-chart'), {
+        type: 'line',
+        data: {
+            labels: months,
+            datasets: [{
+                label: 'Portfolio Value',
+                data: [54300, 55200, 56800, 58100, 59500, 61148],
+                borderColor: '#4BB78F',
+                backgroundColor: 'rgba(75, 183, 143, 0.1)',
+                borderWidth: 3,
+                fill: true,
+                tension: 0.4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            layout: {
+                padding: {
+                    left: 10,
+                    right: 10,
+                    top: 10,
+                    bottom: 10
+                }
+            },
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return `£${context.parsed.y.toLocaleString('en-GB')}`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    ticks: {
+                        color: '#a0b4c8',
+                        callback: function(value) {
+                            return '£' + (value / 1000).toFixed(0) + 'k';
+                        }
+                    },
+                    grid: { color: '#003d5c' }
+                },
+                x: {
+                    ticks: { color: '#a0b4c8' },
+                    grid: { display: false }
+                }
+            }
+        }
+    });
+    
+    // Stocks Performance Chart
+    new Chart(document.getElementById('stocks-performance-chart'), {
+        type: 'line',
+        data: {
+            labels: months,
+            datasets: [{
+                label: 'Stocks',
+                data: [40000, 41200, 42500, 43100, 43800, 44656],
+                borderColor: '#4BB78F',
+                backgroundColor: 'rgba(75, 183, 143, 0.1)',
+                borderWidth: 2,
+                fill: true,
+                tension: 0.4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            layout: {
+                padding: {
+                    left: 10,
+                    right: 10,
+                    top: 10,
+                    bottom: 10
+                }
+            },
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return `£${context.parsed.y.toLocaleString('en-GB')}`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    ticks: {
+                        color: '#a0b4c8',
+                        callback: function(value) {
+                            return '£' + (value / 1000).toFixed(0) + 'k';
+                        }
+                    },
+                    grid: { color: '#003d5c' }
+                },
+                x: {
+                    ticks: { color: '#a0b4c8' },
+                    grid: { display: false }
+                }
+            }
+        }
+    });
+    
+    // Funds Performance Chart
+    new Chart(document.getElementById('funds-performance-chart'), {
+        type: 'line',
+        data: {
+            labels: months,
+            datasets: [{
+                label: 'Funds',
+                data: [14300, 14800, 15200, 15600, 16000, 16492],
+                borderColor: '#007A8B',
+                backgroundColor: 'rgba(0, 122, 139, 0.1)',
+                borderWidth: 2,
+                fill: true,
+                tension: 0.4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            layout: {
+                padding: {
+                    left: 10,
+                    right: 10,
+                    top: 10,
+                    bottom: 10
+                }
+            },
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return `£${context.parsed.y.toLocaleString('en-GB')}`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    ticks: {
+                        color: '#a0b4c8',
+                        callback: function(value) {
+                            return '£' + (value / 1000).toFixed(0) + 'k';
+                        }
+                    },
+                    grid: { color: '#003d5c' }
+                },
+                x: {
+                    ticks: { color: '#a0b4c8' },
+                    grid: { display: false }
+                }
+            }
+        }
+    });
+    
+    // Commodities Performance Chart (Gold price) - From Jul 2018
+    const commoditiesMonths = ['Jul 18', 'Jan 19', 'Jul 19', 'Jan 20', 'Jul 20', 'Jan 21', 'Jul 21', 'Jan 22', 'Jul 22', 'Jan 23', 'Jul 23', 'Jan 24', 'Jul 24', 'Jan 25'];
+    new Chart(document.getElementById('commodities-performance-chart'), {
+        type: 'line',
+        data: {
+            labels: commoditiesMonths,
+            datasets: [{
+                label: 'Gold (XAUUSD)',
+                data: [1220, 1290, 1410, 1580, 1810, 1850, 1800, 1830, 1750, 1920, 1950, 2040, 2350, 2650.50],
+                borderColor: '#F0A946',
+                backgroundColor: 'rgba(240, 169, 70, 0.1)',
+                borderWidth: 2,
+                fill: true,
+                tension: 0.4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            layout: {
+                padding: {
+                    left: 10,
+                    right: 10,
+                    top: 10,
+                    bottom: 10
+                }
+            },
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return `$${context.parsed.y.toFixed(2)}`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    ticks: {
+                        color: '#a0b4c8',
+                        callback: function(value) {
+                            return '$' + value.toFixed(0);
+                        }
+                    },
+                    grid: { color: '#003d5c' }
+                },
+                x: {
+                    ticks: { color: '#a0b4c8' },
+                    grid: { display: false }
+                }
+            }
+        }
+    });
+    
+    // FX Performance Chart - From Jul 2018
+    const fxMonths = ['Jul 18', 'Jan 19', 'Jul 19', 'Jan 20', 'Jul 20', 'Jan 21', 'Jul 21', 'Jan 22', 'Jul 22', 'Jan 23', 'Jul 23', 'Jan 24', 'Jul 24', 'Jan 25'];
+    new Chart(document.getElementById('fx-performance-chart'), {
+        type: 'line',
+        data: {
+            labels: fxMonths,
+            datasets: [
+                {
+                    label: 'USD/JPY',
+                    data: [11.50, 109.20, 108.50, 109.80, 106.50, 103.80, 110.20, 115.50, 135.60, 130.20, 141.50, 145.80, 157.20, 149.85],
+                    borderColor: '#4BB78F',
+                    backgroundColor: 'transparent',
+                    borderWidth: 2,
+                    tension: 0.4
+                },
+                {
+                    label: 'EUR/USD',
+                    data: [1.1650, 1.1420, 1.1180, 1.1050, 1.1320, 1.2150, 1.1820, 1.1350, 1.0180, 1.0650, 1.0920, 1.0840, 1.0920, 1.0875],
+                    borderColor: '#007A8B',
+                    backgroundColor: 'transparent',
+                    borderWidth: 2,
+                    tension: 0.4
+                },
+                {
+                    label: 'GBP/USD',
+                    data: [1.3120, 1.2980, 1.2450, 1.2380, 1.2820, 1.3650, 1.3820, 1.3520, 1.1850, 1.2140, 1.2680, 1.2720, 1.2890, 1.2650],
+                    borderColor: '#F0A946',
+                    backgroundColor: 'transparent',
+                    borderWidth: 2,
+                    tension: 0.4
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom',
+                    labels: { color: '#a0b4c8', font: { size: 12 } }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return `${context.dataset.label}: ${context.parsed.y.toFixed(4)}`;
+                        }
+                    }
+                }
+            },
+            layout: {
+                padding: {
+                    left: 10,
+                    right: 10,
+                    top: 10,
+                    bottom: 10
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    ticks: {
+                        color: '#a0b4c8',
+                        callback: function(value) {
+                            return '$' + value.toFixed(4);
+                        }
+                    },
+                    grid: { color: '#003d5c' }
+                },
+                x: {
+                    ticks: { color: '#a0b4c8' },
+                    grid: { display: false }
+                }
+            }
+        }
+    });
+}
+    </script>
+</body>
+</html>

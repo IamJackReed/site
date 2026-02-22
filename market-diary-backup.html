@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Diary | Jack Reed</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dark-theme.css">
+    <link rel="stylesheet" href="light-theme.css">
+    <link rel="stylesheet" href="theme-toggle.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <a href="/" class="nav-logo">Jack Reed</a>
+            <div class="nav-search">
+                <input type="text" id="search-input" placeholder="Search posts by hashtag..." aria-label="Search posts">
+                <button id="search-button" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="people-and-teams.html">People & Teams</a></li>
+                <li><a href="product.html">Product</a></li>
+                <li><a href="organisation-and-change.html">Organisation & Change</a></li>
+                <li><a href="market-diary.html">Market Diary</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="content-page market-diary-page">
+        <div class="container">
+            <!-- Disclaimer Banner -->
+            <div class="disclaimer-banner">
+                <h3>⚠️ Disclaimer</h3>
+                <p><strong>Nothing on this site is financial advice.</strong> These are my personal notes and opinions, shared for educational and informational purposes only. They do not constitute investment advice, recommendation, or invitation to buy or sell any security. Please do your own research and, if needed, speak to a regulated financial adviser.</p>
+            </div>
+
+            <header class="page-header">
+                <h1>Market Diary</h1>
+                <p class="page-intro">This is my personal market diary—a place where I share my thinking about markets, companies, and capital allocation. It's not advice. It's a record of how I think about investing.</p>
+            </header>
+
+            <!-- My Holdings Dashboard - Featured -->
+            <section class="featured-dashboard" style="margin-bottom: 4rem;">
+                <a href="my-holdings.html" class="dashboard-card" style="display: block; background: linear-gradient(135deg, var(--color-accent) 0%, #1a8cff 100%); border: 2px solid var(--color-accent); padding: 3rem; border-radius: 12px; text-decoration: none; transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; overflow: hidden;">
+                    <div style="position: relative; z-index: 2;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="font-size: 2.5rem;">📊</span>
+                            <span style="background: rgba(255,255,255,0.2); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Live Dashboard</span>
+                        </div>
+                        <h2 style="font-size: 2rem; font-weight: 700; color: white; margin-bottom: 1rem;">My Holdings Dashboard</h2>
+                        <p style="font-size: 1.125rem; line-height: 1.6; color: rgba(255,255,255,0.95); margin-bottom: 1.5rem;">Track my live portfolio with real-time performance metrics, asset allocation breakdowns, and detailed holdings across stocks, funds, commodities, and FX markets.</p>
+                        <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: white; color: var(--color-accent); padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; font-size: 1rem;">
+                            View Dashboard
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left: 0.25rem;">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div style="position: absolute; top: -50%; right: -10%; width: 300px; height: 300px; background: rgba(255,255,255,0.1); border-radius: 50%; z-index: 1;"></div>
+                    <div style="position: absolute; bottom: -30%; left: -5%; width: 200px; height: 200px; background: rgba(255,255,255,0.08); border-radius: 50%; z-index: 1;"></div>
+                </a>
+            </section>
+
+            <!-- Investment Posts -->
+            <section class="posts-section" style="margin-bottom: 4rem;">
+                <h2>Investment Notes</h2>
+                <div class="posts-grid">
+                    <div class="bar-chart-item">
+                        <div class="bar-chart-label">Technology</div>
+                        <div class="bar-chart-bar-container">
+                            <div class="bar-chart-bar" style="width: 35%;" data-value="35%"></div>
+                        </div>
+                    </div>
+                    <div class="bar-chart-item">
+                        <div class="bar-chart-label">Healthcare</div>
+                        <div class="bar-chart-bar-container">
+                            <div class="bar-chart-bar" style="width: 25%;" data-value="25%"></div>
+                        </div>
+                    </div>
+                    <div class="bar-chart-item">
+                        <div class="bar-chart-label">Consumer</div>
+                        <div class="bar-chart-bar-container">
+                            <div class="bar-chart-bar" style="width: 20%;" data-value="20%"></div>
+                        </div>
+                    </div>
+                    <div class="bar-chart-item">
+                        <div class="bar-chart-label">Energy</div>
+                        <div class="bar-chart-bar-container">
+                            <div class="bar-chart-bar" style="width: 12%;" data-value="12%"></div>
+                        </div>
+                    </div>
+                    <div class="bar-chart-item">
+                        <div class="bar-chart-label">Industrials</div>
+                        <div class="bar-chart-bar-container">
+                            <div class="bar-chart-bar" style="width: 8%;" data-value="8%"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fund Performance Chart -->
+            <section class="chart-section">
+                <h2>Overall Fund Performance</h2>
+                <div class="performance-chart">
+                    <div class="performance-summary">
+                        <div class="performance-metric">
+                            <span class="metric-label">Total Return</span>
+                            <span class="metric-value metric-value--positive">+1,200%</span>
+                        </div>
+                        <div class="performance-metric">
+                            <span class="metric-label">vs Benchmark</span>
+                            <span class="metric-value metric-value--positive">+850%</span>
+                        </div>
+                        <div class="performance-metric">
+                            <span class="metric-label">Volatility</span>
+                            <span class="metric-value">18.2%</span>
+                        </div>
+                        <div class="performance-metric">
+                            <span class="metric-label">Sharpe Ratio</span>
+                            <span class="metric-value">1.85</span>
+                        </div>
+                    </div>
+                    <div class="area-chart-container">
+                        <svg class="area-chart" viewBox="0 0 1000 450" preserveAspectRatio="xMidYMid meet">
+                            <defs>
+                                <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#1abcfe;stop-opacity:0.6" />
+                                    <stop offset="50%" style="stop-color:#1abcfe;stop-opacity:0.3" />
+                                    <stop offset="100%" style="stop-color:#1abcfe;stop-opacity:0.05" />
+                                </linearGradient>
+                                <filter id="glow">
+                                    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            
+                            <!-- Grid lines -->
+                            <line x1="0" y1="380" x2="1000" y2="380" stroke="#e5e5e5" stroke-width="1" opacity="0.3"/>
+                            <line x1="0" y1="320" x2="1000" y2="320" stroke="#e5e5e5" stroke-width="1" opacity="0.3"/>
+                            <line x1="0" y1="260" x2="1000" y2="260" stroke="#e5e5e5" stroke-width="1" opacity="0.3"/>
+                            <line x1="0" y1="200" x2="1000" y2="200" stroke="#e5e5e5" stroke-width="1" opacity="0.3"/>
+                            <line x1="0" y1="140" x2="1000" y2="140" stroke="#e5e5e5" stroke-width="1" opacity="0.3"/>
+                            <line x1="0" y1="80" x2="1000" y2="80" stroke="#e5e5e5" stroke-width="1" opacity="0.3"/>
+                            <line x1="0" y1="20" x2="1000" y2="20" stroke="#e5e5e5" stroke-width="1" opacity="0.3"/>
+                            
+                            <!-- Y-axis labels -->
+                            <text x="960" y="25" fill="#999" font-size="13" text-anchor="end" font-weight="500">1300,00</text>
+                            <text x="960" y="85" fill="#999" font-size="13" text-anchor="end" font-weight="500">1200,00</text>
+                            <text x="960" y="145" fill="#999" font-size="13" text-anchor="end" font-weight="500">1100,00</text>
+                            <text x="960" y="205" fill="#999" font-size="13" text-anchor="end" font-weight="500">1000,00</text>
+                            <text x="960" y="265" fill="#999" font-size="13" text-anchor="end" font-weight="500">900,00</text>
+                            <text x="960" y="325" fill="#999" font-size="13" text-anchor="end" font-weight="500">800,00</text>
+                            <text x="960" y="385" fill="#999" font-size="13" text-anchor="end" font-weight="500">700,00</text>
+                            
+                            <!-- Area path with realistic market data showing growth from 2017-2022 -->
+                            <path d="M 0,375 
+                                     L 20,373 L 40,374 L 60,372 L 80,371 L 100,370 L 120,369 L 140,368 L 160,367 L 180,366 
+                                     L 200,365 L 220,364 L 240,363 L 260,362 L 280,361 L 300,360 L 320,359 L 340,358 L 360,357 L 380,356 
+                                     L 400,355 L 420,354 L 440,353 L 460,352 L 480,350 L 500,348 L 520,345 L 540,342 L 560,338 L 580,335 
+                                     L 600,330 L 620,325 L 640,318 L 660,310 L 680,300 L 700,288 L 720,278 L 740,270 L 760,265 L 780,262 
+                                     L 800,258 L 820,255 L 840,250 L 860,245 L 880,238 L 900,228 L 920,215 L 940,195 L 960,170 L 980,140 L 1000,100 
+                                     L 1000,380 L 0,380 Z" 
+                                  fill="url(#areaGradient)" />
+                            
+                            <!-- Line path with realistic volatility -->
+                            <path d="M 0,375 
+                                     L 20,373 L 40,374 L 60,372 L 80,371 L 100,370 L 120,369 L 140,368 L 160,367 L 180,366 
+                                     L 200,365 L 220,364 L 240,363 L 260,362 L 280,361 L 300,360 L 320,359 L 340,358 L 360,357 L 380,356 
+                                     L 400,355 L 420,354 L 440,353 L 460,352 L 480,350 L 500,348 L 520,345 L 540,342 L 560,338 L 580,335 
+                                     L 600,330 L 620,325 L 640,318 L 660,310 L 680,300 L 700,288 L 720,278 L 740,270 L 760,265 L 780,262 
+                                     L 800,258 L 820,255 L 840,250 L 860,245 L 880,238 L 900,228 L 920,215 L 940,195 L 960,170 L 980,140 L 1000,100" 
+                                  fill="none" 
+                                  stroke="#1abcfe" 
+                                  stroke-width="2.5"
+                                  filter="url(#glow)"/>
+                            
+                            <!-- X-axis labels -->
+                            <text x="0" y="410" fill="#999" font-size="13" text-anchor="start" font-weight="500">2017</text>
+                            <text x="100" y="410" fill="#999" font-size="13" text-anchor="middle" font-weight="500">June</text>
+                            <text x="200" y="410" fill="#999" font-size="13" text-anchor="middle" font-weight="500">2018</text>
+                            <text x="300" y="410" fill="#999" font-size="13" text-anchor="middle" font-weight="500">June</text>
+                            <text x="400" y="410" fill="#999" font-size="13" text-anchor="middle" font-weight="500">2019</text>
+                            <text x="500" y="410" fill="#999" font-size="13" text-anchor="middle" font-weight="500">June</text>
+                            <text x="600" y="410" fill="#999" font-size="13" text-anchor="middle" font-weight="500">2020</text>
+                            <text x="700" y="410" fill="#999" font-size="13" text-anchor="middle" font-weight="500">June</text>
+                            <text x="800" y="410" fill="#999" font-size="13" text-anchor="middle" font-weight="500">2021</text>
+                            <text x="900" y="410" fill="#999" font-size="13" text-anchor="middle" font-weight="500">June</text>
+                            <text x="1000" y="410" fill="#999" font-size="13" text-anchor="end" font-weight="500">2022</text>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Company Scoring Table -->
+            <section class="holdings-section">
+                <h2>Company Analysis & Scoring</h2>
+                <div class="table-wrapper">
+                    <table class="holdings-table scoring-table">
+                        <thead>
+                            <tr>
+                                <th>Company</th>
+                                <th>Potential</th>
+                                <th>Growth</th>
+                                <th>Value</th>
+                                <th>Momentum</th>
+                                <th>Health</th>
+                                <th>Efficiency</th>
+                                <th>Score</th>
+                                <th>Rank</th>
+                                <th>Last Week</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Example Tech Co.</strong></td>
+                                <td><span class="score-badge score-high">9.2</span></td>
+                                <td><span class="score-badge score-high">8.8</span></td>
+                                <td><span class="score-badge score-medium">6.5</span></td>
+                                <td><span class="score-badge score-high">8.1</span></td>
+                                <td><span class="score-badge score-high">9.0</span></td>
+                                <td><span class="score-badge score-high">8.5</span></td>
+                                <td><strong>8.35</strong></td>
+                                <td>1</td>
+                                <td><span class="rank-change rank-up">↑ 2</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Example Healthcare</strong></td>
+                                <td><span class="score-badge score-high">8.5</span></td>
+                                <td><span class="score-badge score-medium">7.2</span></td>
+                                <td><span class="score-badge score-high">8.0</span></td>
+                                <td><span class="score-badge score-medium">6.8</span></td>
+                                <td><span class="score-badge score-high">8.8</span></td>
+                                <td><span class="score-badge score-medium">7.5</span></td>
+                                <td><strong>7.80</strong></td>
+                                <td>2</td>
+                                <td><span class="rank-change rank-same">—</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Example Consumer</strong></td>
+                                <td><span class="score-badge score-medium">7.8</span></td>
+                                <td><span class="score-badge score-medium">6.9</span></td>
+                                <td><span class="score-badge score-medium">7.3</span></td>
+                                <td><span class="score-badge score-high">8.2</span></td>
+                                <td><span class="score-badge score-high">8.1</span></td>
+                                <td><span class="score-badge score-medium">7.0</span></td>
+                                <td><strong>7.55</strong></td>
+                                <td>3</td>
+                                <td><span class="rank-change rank-down">↓ 1</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Example Energy</strong></td>
+                                <td><span class="score-badge score-medium">7.2</span></td>
+                                <td><span class="score-badge score-medium">6.5</span></td>
+                                <td><span class="score-badge score-high">8.5</span></td>
+                                <td><span class="score-badge score-medium">7.0</span></td>
+                                <td><span class="score-badge score-medium">7.5</span></td>
+                                <td><span class="score-badge score-medium">6.8</span></td>
+                                <td><strong>7.25</strong></td>
+                                <td>4</td>
+                                <td><span class="rank-change rank-down">↓ 2</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Example Industrial</strong></td>
+                                <td><span class="score-badge score-medium">6.8</span></td>
+                                <td><span class="score-badge score-low">5.5</span></td>
+                                <td><span class="score-badge score-high">8.2</span></td>
+                                <td><span class="score-badge score-low">5.8</span></td>
+                                <td><span class="score-badge score-medium">7.0</span></td>
+                                <td><span class="score-badge score-low">5.9</span></td>
+                                <td><strong>6.53</strong></td>
+                                <td>5</td>
+                                <td><span class="rank-change rank-up">↑ 1</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Asset Allocation -->
+            <section class="chart-section">
+                <h2>Asset Allocation</h2>
+                <div class="bar-chart">
+                    <table class="holdings-table">
+                        <thead>
+                            <tr>
+                                <th>Instrument</th>
+                                <th>Ticker</th>
+                                <th>Region</th>
+                                <th>Thesis Short-Hand</th>
+                                <th>Holding Type</th>
+                                <th>Time Horizon</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Example Tech Co.</td>
+                                <td>EXMP</td>
+                                <td>US</td>
+                                <td>Network effects, pricing power</td>
+                                <td>Core</td>
+                                <td>5+ years</td>
+                            </tr>
+                            <tr>
+                                <td>Example Industrial</td>
+                                <td>EXIN</td>
+                                <td>UK</td>
+                                <td>Undervalued asset, turnaround</td>
+                                <td>Opportunistic</td>
+                                <td>2-3 years</td>
+                            </tr>
+                            <tr>
+                                <td>Example Healthcare</td>
+                                <td>EXHC</td>
+                                <td>EU</td>
+                                <td>Demographic tailwinds, moat</td>
+                                <td>Core</td>
+                                <td>5+ years</td>
+                            </tr>
+                            <tr>
+                                <td>Example Energy</td>
+                                <td>EXEN</td>
+                                <td>UK</td>
+                                <td>Transition play, cash generation</td>
+                                <td>Tactical</td>
+                                <td>1-2 years</td>
+                            </tr>
+                            <tr>
+                                <td>Example Consumer</td>
+                                <td>EXCS</td>
+                                <td>US</td>
+                                <td>Brand strength, margin expansion</td>
+                                <td>Core</td>
+                                <td>5+ years</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Investment Posts -->
+            <section class="posts-section">
+                <h2>Investment Notes</h2>
+                <div class="posts-grid">
+                    <!-- My Holdings Dashboard -->
+                    <article class="post-card">
+                        <span class="post-category post-category--investing">Market Diary</span>
+                        <h2 class="post-title">My Holdings Dashboard</h2>
+                        <p class="post-excerpt">Live portfolio tracker with performance metrics, asset allocation, and detailed holdings across stocks, funds, commodities, and FX.</p>
+                        <div class="post-meta">
+                            <time datetime="2026-02-19">19 February 2026</time>
+                            <a href="my-holdings.html" class="post-link">View Dashboard →</a>
+                        </div>
+                    </article>
+
+                    <!-- Placeholder post cards - replace with real content -->
+                    <article class="post-card">
+                        <span class="post-category post-category--investing">Market Diary</span>
+                        <h2 class="post-title">Why I'm Watching the Energy Transition</h2>
+                        <p class="post-excerpt">Notes on capital flows, policy tailwinds, and where the opportunities might be.</p>
+                        <div class="post-meta">
+                            <time datetime="2026-01-20">20 January 2026</time>
+                            <a href="posts/energy-transition-notes.html" class="post-link">Read more →</a>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <span class="post-category post-category--investing">Market Diary</span>
+                        <h2 class="post-title">Thesis: Example Tech Co.</h2>
+                        <p class="post-excerpt">A deep dive into the business model, competitive position, and why I think it's mispriced.</p>
+                        <div class="post-meta">
+                            <time datetime="2026-01-14">14 January 2026</time>
+                            <a href="posts/thesis-example-tech.html" class="post-link">Read more →</a>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <span class="post-category post-category--investing">Market Diary</span>
+                        <h2 class="post-title">Market Notes: January 2026</h2>
+                        <p class="post-excerpt">Observations on market sentiment, sector rotation, and what I'm paying attention to.</p>
+                        <div class="post-meta">
+                            <time datetime="2026-01-07">7 January 2026</time>
+                            <a href="posts/market-notes-jan-2026.html" class="post-link">Read more →</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 Jack Reed. All rights reserved.</p>
+                <div class="social-icons">
+                    <a href="https://uk.linkedin.com/in/iamjackreed" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/jack.ross.reed/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com/jackrossreed" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
