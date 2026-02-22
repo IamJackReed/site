@@ -159,9 +159,12 @@ strong {
 
 .nav-logo {
     font-family: var(--font-heading);
-    font-size: 1.75rem;
+    font-size: 4.5rem;
     font-weight: 700;
     color: #FE4B60 !important;
+    white-space: nowrap;
+    flex-shrink: 0;
+    line-height: 1;
 }
 
 .nav-logo:hover {
@@ -187,6 +190,7 @@ strong {
     font-size: 0.9375rem;
     outline: none;
     width: 200px;
+    min-width: 150px;
 }
 
 .nav-search input::placeholder {
@@ -893,6 +897,27 @@ strong {
    =================================== */
 
 @media (max-width: 768px) {
+    /* Navigation adjustments */
+    .nav-logo {
+        font-size: 2.5rem;
+    }
+
+    .nav-search {
+        max-width: none;
+        flex: 1;
+        min-width: 140px;
+    }
+
+    .nav-search input {
+        width: 100%;
+        min-width: 120px;
+        font-size: 0.875rem;
+    }
+
+    .nav-search input::placeholder {
+        font-size: 0.8125rem;
+    }
+
     /* Typography adjustments */
     h1 {
         font-size: 2rem;
@@ -990,6 +1015,27 @@ strong {
 @media (max-width: 480px) {
     html {
         font-size: 14px;
+    }
+
+    /* Navigation adjustments */
+    .nav-logo {
+        font-size: 2rem;
+    }
+
+    .nav-search {
+        max-width: none;
+        flex: 1;
+        min-width: 130px;
+    }
+
+    .nav-search input {
+        width: 100%;
+        min-width: 110px;
+        font-size: 0.8125rem;
+    }
+
+    .nav-search input::placeholder {
+        font-size: 0.75rem;
     }
     
     .hero-title {
