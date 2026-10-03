@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const query = searchInput.value.trim();
         if (query) {
             // Redirect to search results page with query parameter
-            window.location.href = `search-results.html?q=${encodeURIComponent(query)}`;
+            window.location.href = `/search-results.html?q=${encodeURIComponent(query)}`;
         }
     }
 
@@ -48,6 +48,14 @@ function displaySearchResults(query) {
 
     // Sample posts database (you'll need to expand this with your actual posts)
     const posts = [
+        {
+            title: 'The Framework Isn’t the Change',
+            url: 'posts/the-framework-isnt-the-change.html',
+            category: 'Organisation & Change',
+            excerpt: 'Start with what needs to improve. The framework should earn its place through the difference it makes.',
+            date: '3 October 2026',
+            hashtags: ['OrganisationalChange', 'Agile', 'SystemsThinking', 'ContinuousImprovement']
+        },
         {
             title: 'Validation Over Precision: What Modern Product Teams Do Differently',
             url: 'posts/validation-over-precision.html',
