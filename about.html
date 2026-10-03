@@ -11,6 +11,39 @@
     <link rel="stylesheet" href="dark-theme.css">
     <link rel="stylesheet" href="light-theme.css">
     <link rel="stylesheet" href="theme-toggle.css">
+    <style>
+        .education-entry {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .education-entry img {
+            width: clamp(3rem, 10vw, 5rem);
+            height: auto;
+            flex-shrink: 0;
+            border-radius: 4px;
+        }
+
+        .education-details {
+            min-width: 0;
+        }
+
+        .education-details h3 {
+            font-size: 1.125rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .education-details p {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .education-date {
+            color: var(--color-text-light);
+            font-size: 0.9375rem;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -132,6 +165,34 @@
                             <img src="Assets/sa-cas_l1-600.png" alt="Certified Agile Skills - Scaling 1 Badge" style="width: 80px; height: 80px; object-fit: contain; transition: transform 0.2s ease;">
                         </a>
                     </p>
+                </section>
+
+                <section class="article-section" aria-labelledby="education-heading">
+                    <h2 id="education-heading">Education &amp; Professional Development</h2>
+                    <div class="education-entry">
+                        <img src="Assets/university_of_chester_logo.jpeg" width="400" height="400" alt="University of Chester logo" loading="lazy" decoding="async">
+                        <div class="education-details">
+                            <h3>University of Chester</h3>
+                            <p>Business and Personal Coaching</p>
+                            <p class="education-date"><time datetime="2021-03">Mar 2021</time> – <time datetime="2021-10">Oct 2021</time></p>
+                        </div>
+                    </div>
+                    <div class="education-entry">
+                        <img src="Assets/barefoot_coaching_logo.jpeg" width="400" height="400" alt="Barefoot Coaching Ltd logo" loading="lazy" decoding="async">
+                        <div class="education-details">
+                            <h3>Barefoot Coaching Ltd</h3>
+                            <p>ICF-accredited PGCert, Business &amp; Personal Coaching</p>
+                            <p class="education-date"><time datetime="2020-08">Aug 2020</time> – <time datetime="2021-01">Jan 2021</time></p>
+                        </div>
+                    </div>
+                    <div class="education-entry">
+                        <img src="Assets/oxfordsbs_logo.jpeg" width="400" height="400" alt="Saïd Business School, University of Oxford logo" loading="lazy" decoding="async">
+                        <div class="education-details">
+                            <h3>Oxford Artificial Intelligence Programme</h3>
+                            <p>Saïd Business School, University of Oxford</p>
+                            <p class="education-date">Issued <time datetime="2026-09">Sep 2026</time></p>
+                        </div>
+                    </div>
                 </section>
 
                 <section class="article-section">
