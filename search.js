@@ -49,6 +49,14 @@ function displaySearchResults(query) {
     // Sample posts database (you'll need to expand this with your actual posts)
     const posts = [
         {
+            title: 'Getting Ahead Can Leave the Team Behind',
+            url: 'posts/getting-ahead-can-leave-the-team-behind.html',
+            category: 'People & Teams',
+            excerpt: 'There’s a difference between gathering context for a conversation and having the conversation on everyone else’s behalf.',
+            date: '3 October 2026',
+            hashtags: ['Teamwork', 'Collaboration', 'SharedDiscovery']
+        },
+        {
             title: 'The Framework Isn’t the Change',
             url: 'posts/the-framework-isnt-the-change.html',
             category: 'Organisation & Change',
