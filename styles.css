@@ -159,7 +159,7 @@ strong {
 
 .nav-logo {
     font-family: var(--font-heading);
-    font-size: 4.5rem;
+    font-size: clamp(1.25rem, 1rem + 1vw, 2rem);
     font-weight: 700;
     color: #FE4B60 !important;
     white-space: nowrap;
@@ -898,10 +898,6 @@ strong {
 
 @media (max-width: 768px) {
     /* Navigation adjustments */
-    .nav-logo {
-        font-size: 2.5rem;
-    }
-
     .nav-search {
         max-width: none;
         flex: 1;
@@ -1018,10 +1014,6 @@ strong {
     }
 
     /* Navigation adjustments */
-    .nav-logo {
-        font-size: 2rem;
-    }
-
     .nav-search {
         max-width: none;
         flex: 1;
