@@ -49,6 +49,14 @@ function displaySearchResults(query) {
     // Sample posts database (you'll need to expand this with your actual posts)
     const posts = [
         {
+            title: 'Everyone Busy, Everything Waiting',
+            url: 'posts/everyone-busy-everything-waiting.html',
+            category: 'Organisation & Change',
+            excerpt: 'When work is closely connected or uncertain, concentrating the team on a small, useful increment can be more effective.',
+            date: '4 October 2026',
+            hashtags: ['SystemsThinking', 'WorkInProgress', 'Flow', 'Teamwork']
+        },
+        {
             title: 'The Keyboard Is a Poor Measure of Progress',
             url: 'posts/the-keyboard-is-a-poor-measure-of-progress.html',
             category: 'Product',
