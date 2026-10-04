@@ -49,6 +49,14 @@ function displaySearchResults(query) {
     // Sample posts database (you'll need to expand this with your actual posts)
     const posts = [
         {
+            title: 'The Keyboard Is a Poor Measure of Progress',
+            url: 'posts/the-keyboard-is-a-poor-measure-of-progress.html',
+            category: 'Product',
+            excerpt: 'Visible output is an incomplete measure of progress. Learning, questioning assumptions and understanding the problem are part of developing.',
+            date: '4 October 2026',
+            hashtags: ['ProductDiscovery', 'Learning', 'Prototyping']
+        },
+        {
             title: 'Too Polished to Question',
             url: 'posts/too-polished-to-question.html',
             category: 'Product',
