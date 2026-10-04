@@ -49,6 +49,14 @@ function displaySearchResults(query) {
     // Sample posts database (you'll need to expand this with your actual posts)
     const posts = [
         {
+            title: 'Too Polished to Question',
+            url: 'posts/too-polished-to-question.html',
+            category: 'Product',
+            excerpt: 'Showing rough work early can help us test assumptions and learn from customers while there’s still time to change direction.',
+            date: '4 October 2026',
+            hashtags: ['ProductDiscovery', 'CustomerFeedback', 'Prototyping']
+        },
+        {
             title: 'When Expertise Becomes a Cage',
             url: 'posts/when-expertise-becomes-a-cage.html',
             category: 'People & Teams',
