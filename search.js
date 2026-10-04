@@ -93,7 +93,7 @@ function displaySearchResults(query) {
             url: 'posts/validation-over-precision.html',
             category: 'Product',
             excerpt: 'Looking into what makes great software',
-            date: 'January 25, 2026',
+            date: '21 August 2023',
             hashtags: ['Product', 'EvidenceBasedManagement', 'FeedbackLoops', 'BuildTheRightThing', 'Validation']
         },
         {
