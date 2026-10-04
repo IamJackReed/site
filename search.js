@@ -49,6 +49,14 @@ function displaySearchResults(query) {
     // Sample posts database (you'll need to expand this with your actual posts)
     const posts = [
         {
+            title: 'When Expertise Becomes a Cage',
+            url: 'posts/when-expertise-becomes-a-cage.html',
+            category: 'People & Teams',
+            excerpt: 'Being good at something can become a surprisingly effective way to stop doing anything else.',
+            date: '4 October 2026',
+            hashtags: ['Teamwork', 'Specialisation', 'CrossTraining', 'TShapedSkills']
+        },
+        {
             title: 'Getting Ahead Can Leave the Team Behind',
             url: 'posts/getting-ahead-can-leave-the-team-behind.html',
             category: 'People & Teams',
