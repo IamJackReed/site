@@ -49,6 +49,14 @@ function displaySearchResults(query) {
     // Sample posts database (you'll need to expand this with your actual posts)
     const posts = [
         {
+            title: 'More People, Same Bottleneck',
+            url: 'posts/more-people-same-bottleneck.html',
+            category: 'Organisation & Change',
+            excerpt: 'Hiring should respond to a constraint we understand. Removing recurring obstacles can help existing people and make future hires effective sooner.',
+            date: '4 October 2026',
+            hashtags: ['SystemsThinking', 'Bottlenecks', 'Hiring', 'ContinuousImprovement']
+        },
+        {
             title: 'Everyone Busy, Everything Waiting',
             url: 'posts/everyone-busy-everything-waiting.html',
             category: 'Organisation & Change',
